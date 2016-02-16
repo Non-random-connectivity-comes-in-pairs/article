@@ -42,12 +42,11 @@ Then the expected number of reciprocal connections is often computed using
 \widetilde{\E}(R) = \binom{N}{2}\, \bar{p}^2 = \frac{N(N-1)}{2}\,  \bar{p}^2.
 \]
 
-In comparing $\E(R)$ with $\E(\widetilde{R})$ we compare two special cases:
-
+In comparing $\E(R)$ with $\E(\widetilde{R})$ we make a distinction between special cases:
 
 \subsection{Asymmetric case $p_{ij} \neq  p _{ji}$}
 
-\begin{lemma}
+\begin{lemma} \label{lem2}
   For $x,y \in \mathbb{R}$ we have inequality
   \[
   x^2 + y^2 \geq 2xy.
@@ -56,6 +55,13 @@ In comparing $\E(R)$ with $\E(\widetilde{R})$ we compare two special cases:
   \end{lemma}
 
 \begin{proof}
-  It is $x^2 + y^2 - 2xy = (x - y)^2 \geq 0 $, thus $  x^2 + y^2 \geq 2xy$, in which strictness holds if $x \neq y$. Conversely, if $x=y$, it follows that $x^2 + y^2 = 2xy$ proving the second statement.
+  It is $x^2 + y^2 - 2xy = (x - y)^2 \geq 0 $, thus $  x^2 + y^2 \geq 2xy$, in which strictness holds if $x \neq y$. Conversely, if $x=y$, it follows trivially that $x^2 + y^2 = 2xy$ proving the second statement.
 \end{proof}
+
+I think I've got caught up in asymmetric part a bit. Considering a graph with two nodes of average connection probability $p=0.5$, it's clear that the expected amount of reciprocal connections is \textbf{highest} when $p_{12} = p_{21} = 0.5$. Consider the extreme case of $p_{12} = 1$ and $p_{21} = 0$, where reciprocal connection appear with probability zero.
+
+That asymmetric connectivity reduces bidirectional connections is encapsulated in Lemma \ref{lem2}. It would still be interesting to confirm (numerically?) and quantify(?) how asymmetric connectivity affect the reciprocal pair counts.
+
+\subsection{Symmetric case  $p_{ij} =  p _{ji}$}
+
 
