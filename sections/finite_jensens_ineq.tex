@@ -1,9 +1,9 @@
 
 \subsection{Jensen's Inequality - Finite Case}
 
-The finite case Jensen's equality is just the convexity criterion expanded via induction to multiple summands.
-
-\begin{proposition}
+The finite case Jensen's inequality is just the convexity criterion expanded via induction to multiple summands.
+ 
+\begin{proposition}\label{th:finite_jensen}
   Let $\varphi: C \to \mathbb{R}$ be a strictly convex function and $x_i \in C$ for $i=1,\dots,n$. Then for every family $(a_i)_{i=1,...,n}$ with $a_i > 0$, $i=1,\dots,n$, and $\sum_{i=1}^{n} a_i = 1$ the inequality
   \[
   \varphi\left(\sum_{i=1}^{n} a_i x_i\right) \leq \sum_{i=1}^{n} a_i \varphi(x_i)
@@ -27,7 +27,7 @@ The finite case Jensen's equality is just the convexity criterion expanded via i
   \sum_{i=1}^{n-1}  \frac{a_i}{1-a_n} = \frac{1-a_n}{1-a_n} = 1.
   \]
 
-  For equality statement, both \ref{eq:finitJ1} and \ref{eq:finitJ2} need to be equalities. By the induction hypothesis \ref{eq:finitJ2} is an equality if and only if $x_1 = \ldots = x_{n-1}$.  By Proposition \ref{convex_eq}, equality in \ref{eq:finitJ1} holds if and only if
+  For equality statement, both \ref{eq:finitJ1} and \ref{eq:finitJ2} need to be equalities. By the induction hypothesis, \ref{eq:finitJ2} is an equality if and only if $x_1 = \ldots = x_{n-1}$.  By Proposition \ref{convex_eq}, equality in \ref{eq:finitJ1} holds if and only if
   \[
   \sum_{i=1}^{n-1} \frac{a_i}{1-a_n} x_i = x_n.
   \]
@@ -37,3 +37,5 @@ The finite case Jensen's equality is just the convexity criterion expanded via i
   \]
   
 \end{proof}
+
+

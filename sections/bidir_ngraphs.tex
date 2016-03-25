@@ -4,7 +4,7 @@ Let $\mathcal{G}$ be a graph with $n$ vertices.
 
 Let $(X_{ij})_{i,j=1,...,n}$ be random variables for the number of connections between node $v_i$ and $v_j$ of $\mathcal{G}$ with $P(X=1)=p_{ij}$ and $P(X=0)=1-p_{ij}$ if $i \neq j$ and $P(X=0) =1 $ otherwise.
 
-Define $S$ as the random variable of total number of connections in $G$,
+Define $S$ as the random variable of the total number of connections in $G$,
 \[
 S := \sum_{i,j} X_{ij} = \sum_{i \neq j} X_{ij}.
 \]
@@ -18,12 +18,12 @@ A \emph{bidirectional connection} exists between nodes $v_i$ and $v_j$ if there 
 \[
 Y_{ij} = X_{ij} X_{ji}.
 \]
-The distributions are
-\[
-P(Y_{ij} = 1) = P(X_{ij}) P(X_{ji}) = p_{ij} p_{ji} \quad \mathrm{and} \quad P(Y_{ij} = 0) = 1 - p_{ij}p_{ji}.
-\]
+From the independence of the $X_{ij}$ the distributions of the $Y_{ij}$ are
+\begin{align*}
+  P(Y_{ij} = 1) &= P(X_{ij}X_{ji}=1) = P(X_{ij} =1 \wedge X_{ji}=1) \\ &=  P(X_{ij}=1) P(X_{ji}=1) = p_{ij} p_{ji}, \\ P(Y_{ij} = 0) &= 1 - p_{ij}p_{ji}.
+  \end{align*}
 
-If $R$ is define as the random variable of the total number of reciprocal connections in the graph,
+If $R$ is defined as the random variable of the total number of reciprocal connections in the graph,
 \[
 R := \frac{1}{2} \sum_{i \neq j} Y_{ij} = \sum_{i > j} Y_{ij},
 \]
@@ -47,7 +47,7 @@ In comparing $\E(R)$ with $\E(\widetilde{R})$ we make a distinction between spec
 \subsection{Asymmetric case $p_{ij} \neq  p _{ji}$}
 
 \begin{lemma} \label{lem2}
-  For $x,y \in \mathbb{R}$ we have inequality
+  For $x,y \in \mathbb{R}$ we have the inequality
   \[
   x^2 + y^2 \geq 2xy.
   \]
@@ -60,8 +60,22 @@ In comparing $\E(R)$ with $\E(\widetilde{R})$ we make a distinction between spec
 
 I think I've got caught up in asymmetric part a bit. Considering a graph with two nodes of average connection probability $p=0.5$, it's clear that the expected amount of reciprocal connections is \textbf{highest} when $p_{12} = p_{21} = 0.5$. Consider the extreme case of $p_{12} = 1$ and $p_{21} = 0$, where reciprocal connection appear with probability zero.
 
-That asymmetric connectivity reduces bidirectional connections is encapsulated in Lemma \ref{lem2}. It would still be interesting to confirm (numerically?) and quantify(?) how asymmetric connectivity affect the reciprocal pair counts.
+That asymmetric connectivity reduces bidirectional connections is encapsulated in Lemma \ref{lem2}. It might still be interesting to confirm (numerically?) and quantify(?) how asymmetric connectivity affect the reciprocal pair counts.
 
 \subsection{Symmetric case  $p_{ij} =  p _{ji}$}
 
+Let now $p_{ij} =  p _{ji}$ for $i=1,\dots,n$. The expected number of reciprocally connected pairs in the graph is then
+\[
+\E(R) = \sum_{i>j} p_{ij}^2.
+\]
 
+We have
+\begin{align}
+  \widetilde{\E}(R) &= \frac{N(N-1)}{2} \bar{p}^2 = \frac{N(N-1)}{2} \left(\sum_{i \neq j} \frac{1}{N(N-1)} p_{ij}\right)^2 \nonumber\\
+  & \leq \frac{N(N-1)}{2} \sum_{i \neq j}\frac {1}{N(N-1)}\, p_{ij}^2 = \frac{1}{2}\, \sum_{i \neq j} p_{ij}^2 \label{eq:n1} \\
+  & = \sum_{i>j} p_{ij}^2 = \E(R), \label{eq:n2} 
+\end{align}
+
+where in \ref{eq:n1} the Jensen's inequality \ref{th:finite_jensen} could be applied as $\sum_{i \neq j} \frac{1}{N(N-1)}=1$ and $x \to x^2$ is a strictly convex function. In \ref{eq:n2} the symmetry $p_{ij} =  p _{ji}$ was used.
+
+Equality holds in \ref{eq:n1} if and only if $p_{ij} = p$ for a $p \in [0,1]$ and all $i,j=1,\dots,n$. In this case the graph $\mathcal{G}$ is an Erd\H{o}s-R\'{e}nyi graph. If, however, the probability of connection between nodes is not constant across the graph the value $\widetilde{\E}(R)$ strictly underestimates the expected amount of reciprocal connections in the graph.

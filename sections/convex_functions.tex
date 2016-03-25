@@ -1,36 +1,37 @@
 \section{Convex functions}
 
-\begin{definition}
-  A function $\varphi: C \to \mathbb{R}$, defined on a convex subset $C$ of $\mathbb{R}$, is called convex, if for all $x,y \in C$ and $\lambda \in [0,1]$
-  \[
-  \varphi (\lambda x + (1-\lambda)y) \leq \lambda \varphi(x) + (1-\lambda) \varphi(y).
-  \]
-\end{definition}
+%% \begin{definition}
+%%   A function $\varphi: C \to \mathbb{R}$, defined on a convex subset $C$ of $\mathbb{R}$, is called convex, if for all $x,y \in C$ and $\lambda \in [0,1]$
+%%   \[
+%%   \varphi (\lambda x + (1-\lambda)y) \leq \lambda \varphi(x) + (1-\lambda) \varphi(y).
+%%   \]
+%% \end{definition}
 
-\begin{proposition}
-Let $x < y \in \mathbb{R}$. The set $\{\lambda x + (1-\lambda)y \mid \lambda \in [0,1]\}$ is just the interval $[x,y]$. 
-\end{proposition}
+%% \begin{proposition}
+%% Let $x < y \in \mathbb{R}$. The set $\{\lambda x + (1-\lambda)y \mid \lambda \in [0,1]\}$ is just the interval $[x,y]$. 
+%% \end{proposition}
 
-\begin{proof}
-  ``$\subseteq$'': Show that $\lambda x + (1-\lambda)y \in [x,y]$. It is
-  \[
-  \lambda x + (1-\lambda)y \leq \lambda y + (1-\lambda)y = y
-  \] 
-  and
-  \[
-  \lambda x + (1-\lambda)y \geq \lambda x + (1-\lambda) x = x,
-  \]
-  thus $\lambda x + (1-\lambda)y \in [x,y]$.
+%% \begin{proof}
+%%   ``$\subseteq$'': Show that $\lambda x + (1-\lambda)y \in [x,y]$. It is
+%%   \[
+%%   \lambda x + (1-\lambda)y \leq \lambda y + (1-\lambda)y = y
+%%   \] 
+%%   and
+%%   \[
+%%   \lambda x + (1-\lambda)y \geq \lambda x + (1-\lambda) x = x,
+%%   \]
+
+%%   thus $\lambda x + (1-\lambda)y \in [x,y]$.
   
-  ``$\supseteq$'': Show that every $z \in [x,y]$ has a representation $z=\lambda x + (1-\lambda)y$. Assume $z \in (x,y)$ otherwise $\lambda=0$ or $\lambda=1$.
+%%   ``$\supseteq$'': Show that every $z \in [x,y]$ has a representation $z=\lambda x + (1-\lambda)y$. Assume $z \in (x,y)$ otherwise $\lambda=0$ or $\lambda=1$.
 
-  Set $\lambda=\frac{z-y}{x-y} < 0$. Then
-  \[
-  \frac{z-y}{x-y} x + (1- \frac{z-y}{x-y}) y = \frac{xz-yx+yx-y^2-zy+y^2}{x-y} = z
-  \]
-  as desired.
+%%   Set $\lambda=\frac{z-y}{x-y} < 0$. Then
+%%   \[
+%%   \frac{z-y}{x-y} x + (1- \frac{z-y}{x-y}) y = \frac{xz-yx+yx-y^2-zy+y^2}{x-y} = z
+%%   \]
+%%   as desired.
   
-\end{proof}
+%% \end{proof}
 
 
 \begin{definition}
