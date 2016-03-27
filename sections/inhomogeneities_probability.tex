@@ -1,20 +1,22 @@
 
-We're discussing now a network model in which node to node connection probabilities are randomly distributed. One might think for example of a network in which connection probability decreases with distance.
+We're discussing now a network model in which node-to-node connection probabilities are randomly distributed. One might think for example of a network in which connection probability decreases with distance.
 
 Remembering the notation from above, we write
 \[
-P(X_{ij}=1) = P
+P(X_{ij}=1) = P_{ij}
 \]
-where P is a random variable with values in $[0,1]$.
+where $P=P_{ij}$ are identically distributed continuous random variables with values in $[0,1]$. We write the of probability density function of the $P_{ij}$ as $f_{P_{ij}}$.
 
-First, the overall connection probability $\bar{p}$ in the network is just the expected value of $P$,
+First, the overall connection probability $\bar{p}$ in the network is just the expected value of the $P_{ij}$,
 \[
-\bar{p} = \E(P) = \int_0^1 p f_P(p)\, dp.
+\bar{p} = \E(P_{ij}) = \int_0^1 p f_{P_{ij}}(p)\, dp.
 \]
 
-Again, the \enquote{expected} probability to find a bidirectional connection would be given as $\bar{p}^2 = \E(P)^2$.
-
-However, the chance to have an bidirectional connection in a pair is the product of the two connection probabilities of the two nodes. In our model, these probabilities $p$ and $q$ stem from a random distribution, given for example by its density function $f_P$.
+Again, the \enquote{expected} probability to find a bidirectional connection would be given as
+\[
+\bar{p}^2 = \E(P_{ij})^2.
+\]
+However, the chance to have an bidirectional connection in a pair is the product of the two connection probabilities of the two nodes. In our model, these probabilities $P=P_{ij}$ and $Q=P_{ji}$ stem from a random distribution, given by their density functions $f_P = f_Q$.
 
 
 \[
