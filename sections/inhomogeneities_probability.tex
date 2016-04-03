@@ -1,29 +1,59 @@
 
-We're discussing now a network model in which node-to-node connection probabilities are randomly distributed. One might think for example of a network in which connection probability decreases with distance.
+Consider a network with nodes $x_1,\dots,x_{N}$. Let there be a connection from node $x_i$ to $x_j$ with probability $P_{ij}$. Typically, . However, it is highly unlikely that all nodes are connected with the same probability. 
 
-Remembering the notation from above, we write
-\[
-P(X_{ij}=1) = P_{ij}
-\]
-where $P=P_{ij}$ are identically distributed continuous random variables with values in $[0,1]$. We write the of probability density function of the $P_{ij}$ as $f_{P_{ij}}$.
+Thus let the $P_{ij}$ be identically distributed continuous random variables with values in $[0,1]$. We write the of probability density function of the $P_{ij}$ as $f_{P_{ij}}$.
 
-First, the overall connection probability $\bar{p}$ in the network is just the expected value of the $P_{ij}$,
+
+%% We're discussing now a network model in which node-to-node connection probabilities are randomly distributed. One might think for example of a network in which connection probability decreases with distance.
+
+%% Remembering the notation from above, we write
+%% \[
+%% P(X_{ij}=1) = P_{ij}
+%% \]
+%% where $P=P_{ij}$ are identically distributed continuous random variables with values in $[0,1]$. We write the of probability density function of the $P_{ij}$ as $f_{P_{ij}}$.
+
+
+The overall connection probability $\bar{p}$ in this network, that is the probability to find a connection from one random node to another random node, is just the expected value of the $P_{ij}$,
 \[
-\bar{p} = \E(P_{ij}) = \int_0^1 p f_{P_{ij}}(p)\, dp.
+\bar{p} = \frac{1}{N(N-1)} \sum_{i \neq j} \E(P_{ij}) = \E(P_{ij}) = \int_0^1 p f_{P_{ij}}(p)\, dp.
 \]
 
 Again, the \enquote{expected} probability to find a bidirectional connection would be given as
 \[
 \bar{p}^2 = \E(P_{ij})^2.
 \]
-However, the chance to have an bidirectional connection in a pair is the product of the two connection probabilities of the two nodes. In our model, these probabilities $P=P_{ij}$ and $Q=P_{ji}$ stem from a random distribution, given by their density functions $f_P = f_Q$.
+However, the chance to have an bidirectional connection in a pair is the product of the two connection probabilities of the two nodes. In our model, these probabilities $P=P_{ij}$ and $Q=P_{ji}$ stem from a random distribution, given by their density functions $f_P = f_Q$
+%
+\begin{align*}
+\E(PQ) & = \int_0^1 \int_0^1 pq f_{PQ}(p,q) \,dp\,dq = \int_0^1 \int_0^1 pq f_{Q|P}(q|p) f_{P}(p) \,dp\,dq.
+\end{align*}
 
-
+If $P$ and $Q$ are independent, then $f_{Q|P}(q|p) = f_Q(q)$ and thus
 \[
-\int_0^1 \int_0^1 pq f_{PP}(p,q) \,dp\,dq
+\E(PQ) = \int_0^1 \int_0^1 pq f_{Q}(q) f_{P}(p) \,dp\,dq = \int_0^1 p  f_{P}(p) \,dp \int_0^1  q f_{Q}(q) \,dq =  \E(P_{ij})^2 = \bar{p}^2.
+\]
+Thus in this case, we expect to observe \textbf{no} overrepresentation of reciprocal connections.
+
+However, if connection probabilities are symmetric, i.e. from $P = p$ immediately follows $Q=p$,
+\[
+f_{Q|P}(q|p) = \delta(q-p),
+\]
+then we obtain
+%
+\begin{align*}
+\E(PQ) & = \int_0^1 \int_0^1 pq f_{Q}(q) f_{P}(p) \,dp\,dq = \int_0^1 p^2  f_{P}(p) \,dp =  \E(P_{ij}^2).
+\end{align*}
+%
+From Jensen's inequality, since $x \mapsto x^2$ is a strictly convex function, we have
+%
+\[
+\E(PQ) = \E(P_{ij}^2) \geq \E(P_{ij})^2,
+\]
+where equality holds if and only if $P_{ij}$ is constant. In other words, any distribution of connection probabilities, where some pairs are more likely connected than others, lead to an underestimation of the reciprocally connected pair count using the overall connection probability $\E(P_{ij}) = \bar{p}$.
+
+Finally we can write the expected overrepresentation as
+\[
+\sigma = \frac{\E(P_{ij}^2)}{{\E\left(P_{ij}\right)}^2}.
 \]
 
-If $P$ and $Q$ are independent
 
-
-Otherwise, if the is symmetric in connection probabilities
