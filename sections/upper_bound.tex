@@ -1,22 +1,12 @@
 
-Given a network $\mathcal{G}$ with $N$ vertices and $|E|$ connections (no self-loops, no parallel connections).
-
-The overall connection probability is
+The expected overrepresentation of bidirectional connections $\sigma$ is maximal, when every connected pair in the network is already a reciprocally connected pair, that is when
 \[
-\bar{p} := \frac{|E|}{N(N-1)}
+\E(P_{ij}^2) = \E(P_{ij}).
 \]
-
-Then, the overexpression as typically measured in experimental studies is given as
-\[
-o_{\mathcal{G}} = \frac{|\{\textrm{reciprocal pairs}\}|}{\binom{N}{2} \bar{p}^2}
-\]
-
-The overexpression $o_{\mathcal{G}}$ is maximal, when the number of reciprocal connections is maximal. In a graph with $|E|$ connections, this is the case when every connected pair is already bidirectionally connected:
-\[
-|\{\textrm{reciprocal pairs}\}| = \frac{|E|}{2}.
-\]
-Here we assumed that $|E|$ is even for simplicity. With this we obtain an upper bound for the overrepresentation of bidirectional connections in the network:
+%% (The only distributions that satisfy this identity are distribution where $P_{ij}=1$ and $P_{ij}=0$ only with non-zero probability.)
 %
+In this case the overrepresentation is
 \[
-o_{\mathcal{G}}^{max} = \frac{\frac{|E|}{2}}{\frac{N(N-1)}{2} \bar{p}^2} = \frac{N(N-1)}{|E|} = \frac{1}{\bar{p}}.
+\sigma = \frac{1}{\E(P_{ij})} = \frac{1}{\bar{p}}.
 \]
+Thus, in local cortical networks with a typical connection probability of $\bar{p} = 0.1$ the maximal overrepresentation is $\sigma = 10$.
