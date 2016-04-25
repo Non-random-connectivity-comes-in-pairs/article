@@ -1,19 +1,17 @@
 
-Let $x \neq y \in [0,1]$. Define the two-point distribution (\href{https://de.wikipedia.org/wiki/Zweipunktverteilung}{\enquote{Zweipunktverteilung}}) $T_{p,x,y}$, as the distribution that takes on value $P(X=x)=p$, $P(X=y) = 1-p$. 
+The simplest non-constant distribution of connection probabilities is distribution that takes two values $x$, $y$ with probability $p$ and $1-p$ respectively. Formally, let $x, y \in [0,1]$ with $x \neq y$  and $0 < p < 1$. Then, a random variable $X$ follows the two-point distribution \cc{(\enquote{Zweitpunktverteilung}, \href{https://de.wikipedia.org/wiki/Zweipunktverteilung}{Wiki})} $T_{p,x,y}$  if $P(X=x)=p$ and $P(X=y) = 1-p$. 
 
-Given a two-point distribution with points $x \neq y \in [0,1]$, that is a probability distribution that takes on values.
-
-The mean is, which represents the overall connection probability,
+In a network with connection probabilities $P_{ij}$ distributed after $T_{p,x,y}$ the overall connection probability $\mu$ is
 \[
-\E(\cdot) = \mu = px + (1-p)y.
+\mu = \E(P_{ij}) = px + (1-p)y.
 \]
-Given $\mu$,$x$ and $y$, the probability $p$ calculates as
+%% Given $\mu$,$x$ and $y$, the probability $p$ calculates as
+%% \begin{align}
+%%   p = \frac{c-y}{x-y}. \label{eq:bd1}
+%% \end{align}
+Assume again, that the with $P_{ij} = P_{ji}$ .The expected overrepresentation of bidirectional connections $\sigma$ is given by
 \begin{align}
-  p = \frac{c-y}{x-y}. \label{eq:bd1}
-\end{align}
-We can easily compute the expected overrepresentation in the network:
-\begin{align}
-  \sigma = \frac{p x^2 + (1-p) y^2}{\mu^2} \label{eq:bd2}
+  \sigma = \frac{\E(P_{ij}^2)}{\mu^2} = \frac{p x^2 + (1-p) y^2}{\mu^2} \label{eq:bd2}
 \end{align}
 Using \eqref{eq:bd1}, equation~\eqref{eq:bd2} can be reduced to three parameters. It's the question which parameters and how to explore the parameter space.
 
