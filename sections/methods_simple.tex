@@ -13,27 +13,29 @@
 %% where $P=P_{ij}$ are identically distributed continuous random variables with values in $[0,1]$. We write the of probability density function of the $P_{ij}$ as $f_{P_{ij}}$.
 
 
-The overall connection probability $\mu$ in this network, that is the probability to find a connection from one random node to another random node, is just the expected value of $P_{ij}$,
-\[
-\mu = \E(P_{ij}) = \int_0^1 p f_{P_{ij}}(p)\, dp.
-\]
+Non-random network connectivity in a random graph can be modeled by assigning separate probabilities of connection for different pairs. Some connection  In the extreme case we a blue print. Here we assume a network with 
+
+The overall connection probability $\mu$ is the probability a connection from one random node to another random node, In the given network we can compute $\mu$ as the expected value of $P_{ij}$,
+\begin{align}
+\mu = \E(P_{ij}).
+\end{align}
 
 %% Here, we are interested in the probability $P_{\mathbf{bidir}}$ of finding In a random pair of neurons, the probability  to find a bidirectional connection is the expected value of the product of $P=P_{ij}$ and $Q=P_{ji}$. With their respective density functions $f_P$, $f_Q$ and their joint probability density function $f_{PQ}$ we have
 
 
-Here, we are interested in the probability $P_{\mathbf{bidir}}$ of a bidirectional connection in a random pair of neurons. We determine $P_{\mathbf{bidir}}$ as the expected value product of the product of $P=P_{ij}$ and $Q=P_{ji}$. With the probability density functions $f_P$, $f_Q$ and the joint probability density function $f_{PQ}$ we have
+Here, we are interested in the probability $P_{\mathbf{bidir}}$ of a bidirectional connection in a random pair of neurons. We determine $P_{\mathbf{bidir}}$ as the expected value product of the product of $P_{ij}$ and $P_{ji}$,
 %
 \begin{align}
-P_{\mathbf{bidir}} = \E(PQ) & = \int_0^1 \int_0^1 pq f_{PQ}(p,q) \,dp\,dq = \int_0^1 \int_0^1 pq f_{Q|P}(q|p) f_{P}(p) \,dp\,dq.
+P_{\mathbf{bidir}} = \E(P_{ij} P_{ji}).
 \end{align}
 %
-To answer the question if this probability is deviates from the proabibility than we would expect . The probability of a bidirectional in this standard random graph is $\mu$. We can the overrepresentation of as the quotient
-\[
-\sigma = \frac{P_{\mathbf{bidir}}}{\mu^2} = \frac{\E(PQ)}{{\E\left(P_{ij}\right)}^2}.
-\]
 
+The relative occurrence of reciprocally connected pairs $\sigma$ compares $P_{\mathbf{bidir}}$ with the occurrence of bidirectional pairs in an Erd\H{o}s-R\'{e}nyi graph, in which each unidirectional connection is equally likely to occur with probability $\mu$ \cite{Gilbert1959, Erdos1959}. The chance of a bidirectional connection in such graph is then simply $\mu^2$ and we obtain the relative occurrence as the quotient
+%% To answer the question if this probability is deviates from the proabibility than we would expect . The probability of a bidirectional in this standard random graph is $\mu$. We can the overrepresentation of as the quotient of $
+\begin{align}
+\sigma = \frac{P_{\mathbf{bidir}}}{\mu^2} = \frac{\E(P_{ij}P_{ji})}{{\E\left(P_{ij}\right)}^2}.
+\end{align}
 
---------------
 
 %% Again, the \enquote{expected} probability to find a bidirectional connection would be given as
 %% \[
@@ -45,9 +47,9 @@ To answer the question if this probability is deviates from the proabibility tha
 %% \E(PQ) & = \int_0^1 \int_0^1 pq f_{PQ}(p,q) \,dp\,dq = \int_0^1 \int_0^1 pq f_{Q|P}(q|p) f_{P}(p) \,dp\,dq.
 %% \end{align*}
 
-If $P$ and $Q$ are independent, then $f_{Q|P}(q|p) = f_Q(q)$ and thus
+If the random variables $P_{ij}$ and $P_{ji}$ are independent then $f_{Q|P}(q|p) = f_Q(q)$ and thus
 \[
-\E(PQ) = \int_0^1 \int_0^1 pq f_{Q}(q) f_{P}(p) \,dp\,dq = \int_0^1 p  f_{P}(p) \,dp \int_0^1  q f_{Q}(q) \,dq =  \E(P_{ij})^2 = \widebar{p}^2.
+\E(P_{ij} P_{ji}) = \E(P_{ij})\,\E(P_{ji}) = \E(P_{ij})^2
 \]
 Thus in this case, we expect to observe no overrepresentation of reciprocal connections, $\sigma = 1$.
 
