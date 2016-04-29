@@ -13,7 +13,7 @@
 %% where $P=P_{ij}$ are identically distributed continuous random variables with values in $[0,1]$. We write the of probability density function of the $P_{ij}$ as $f_{P_{ij}}$.
 
 
-Non-random network connectivity in a random graph can be modeled by assigning separate probabilities of connection for different pairs. Some connection  In the extreme case we a blue print. Here we assume a network with 
+Non-random network connectivity in a random graph can be modeled by assigning each connection a separate probability to exist. Some connections are more likely to be realized in the network, some less. In the limiting case a blue print. Here we assume a network with 
 
 The overall connection probability $\mu$ is the probability a connection from one random node to another random node, In the given network we can compute $\mu$ as the expected value of $P_{ij}$,
 \begin{align}
@@ -48,9 +48,9 @@ The relative occurrence of reciprocally connected pairs $\sigma$ compares $P_{\m
 %% \end{align*}
 
 If the random variables $P_{ij}$ and $P_{ji}$ are independent then $f_{Q|P}(q|p) = f_Q(q)$ and thus
-\[
+\begin{align}
 \E(P_{ij} P_{ji}) = \E(P_{ij})\,\E(P_{ji}) = \E(P_{ij})^2
-\]
+\end{align}
 Thus in this case, we expect to observe no overrepresentation of reciprocal connections, $\sigma = 1$.
 
 However, if connection probabilities are symmetric, i.e. from $P = p$ immediately follows $Q=p$,
