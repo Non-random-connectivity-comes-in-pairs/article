@@ -1,9 +1,46 @@
 
-References: \href{http://herbsusmann.com/distributions/gamma-distribution-variance-proof.html}{Proof $\E(X^2)$}, 
+A continuous distribution w long tail and narrow while maintaing a constant mean. The gamma distribution fulfills these criteria.
 
-The gamma distribution was picked 
+Consider then above network model with connection probabilities $P_{ij}$ . The gamma distribution is given by its probability density function 
+%
+\begin{align}
+  f_{\alpha,\beta}(x) = \begin{cases} C_{\alpha, \beta}\,
+\frac{1}{\beta^{\alpha}\Gamma(\alpha)}\, x^{\alpha-1}\,e^{-x/\beta} & 0 \leq x \leq 1 \\
+0 & \text{otherwise}.
+\end{cases}
+\end{align}
+
+The factor $C_{\alpha,\beta}$ is needed due to the truncation of the probability density function for $x>0$ to ensure that
+\begin{align}
+  \int f_{\alpha,\beta}(x) \,dx = 1. \label{eq:gd1}
+\end{align}
+The value of $C_{\alpha,\beta}$ is the inverse of the cumulative probability $x \leq 1$ of the untruncated gamma distribution,
+\begin{align}
+  C_{\alpha,\beta} = \left(\int_0^{1} \frac{1}{\beta^{\alpha}\Gamma(\alpha)}\, x^{\alpha-1}\,e^{-x/\beta} \, dx \right)^{-1}.
+\end{align}
+With this the equality~\eqref{eq:gd1} clearly holds. As $C_{\alpha,\beta}$ is The overall connection probability $\mu$ is
+
+\begin{align}
+ \mu = \E(P_{ij}) = C_{\alpha,\beta} \, \alpha \beta
+\end{align}
+
+\begin{align}
+  \E(P_{ij}^2) = C_{\alpha,\beta}^2 \, (\alpha^2 \beta^2 + \alpha \beta^2).
+\end{align}
+
+The overrepresentation is then
+\begin{align}
+  \sigma & = \frac{\E(P_{ij}^2)}{\E(P_{ij})^2} =% \frac{\alpha^2 \beta^2}{\alpha^2 \beta^2} + \frac{\alpha \beta^2}{\alpha^2 \beta^2} =
+  1 + \frac{1}{\alpha}.
+\end{align}
+
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.6\textwidth]{../lab/gamma_distribution/gamma_figure.png}
+\includegraphics[width=\textwidth]{../lab/gamma_distribution/gamma_figure.png}
+\caption{Probability density functions of the truncated gamma distribution for different shape parameters $\alpha$ and the induced relative overrepresentation of bidirectional connections $\sigma$ in the network. Note that nly showing the distribution for values up to 0.5}
 \end{figure}
+
+
+References: \href{http://herbsusmann.com/distributions/gamma-distribution-variance-proof.html}{Proof $\E(X^2)$}, 
+
