@@ -15,9 +15,9 @@
 
 The emergence of non-random connectivity patterns can be modeled by assigning each connection in a random graph a separate probability to exist. In such a model some connections are more likely to be realized than others, allowing for the encoding of patterns within the specific probabilities of each connection. In the limiting case each connection either exists or is absent with certainity ($P=1$) presenting a blueprint for the network architecture.
 
-To analyze the effect of such non-random patterns within in a network, specifically on the statistics of bidirectionally connected pairs found in the network, we consider a random graph model of $N$ neurons in which a connection from node $i$ to node $j$ exists with probability $P_{ij}$. Here the $(P_{ij})_{i,j=1,\dots,N}$ are identically distributed random variables in $[0,1]$, yielding a probability of connection for each ordered pair of nodes in the graph.  
+To analyze the effect of non-random patterns within a network, specifically on the statistics of bidirectionally connected pairs found in the network, we consider a random graph model of $N$ neurons in which a connection from node $i$ to node $j$ exists with probability $P_{ij}$. Here the $(P_{ij})_{i,j=1,\dots,N}$ are identically distributed random variables in $[0,1]$, yielding a probability of connection for each ordered pair of nodes in the graph.  
 
-Given the $(P_{ij})_{i,j=1,\dots,N}$, what is then the probability for a random node to have projection to another random node in this model?  We can compute this overall connection probability $\mu$ easily as the expected value of $P_{ij}$,
+Given the $(P_{ij})_{i,j=1,\dots,N}$, what is then the probability in this model for a random node to have a projection to another random node in the network? We can compute this overall connection probability $\mu$ easily as the expected value of $P_{ij}$,
 \begin{align}
 \mu = \E(P_{ij}).
 \end{align}
@@ -25,14 +25,14 @@ Given the $(P_{ij})_{i,j=1,\dots,N}$, what is then the probability for a random 
 %% Here, we are interested in the probability $P_{\mathbf{bidir}}$ of finding In a random pair of neurons, the probability  to find a bidirectional connection is the expected value of the product of $P=P_{ij}$ and $Q=P_{ji}$. With their respective density functions $f_P$, $f_Q$ and their joint probability density function $f_{PQ}$ we have
 %
 %
-In this work we are interested in the probability $P_{\mathbf{bidir}}$ of a bidirectional connection to exist in a random pair of neurons. We determine $P_{\mathbf{bidir}}$ as the expected value product of the product of $P_{ij}$ and $P_{ji}$,
+In this work we are interested in the probability $P_{\mathbf{bidir}}$ of a bidirectional connection to exist in a random pair of neurons. We determine $P_{\mathbf{bidir}}$ as the expected value of the product of $P_{ij}$ and $P_{ji}$,
 %
 \begin{align}
 P_{\mathbf{bidir}} = \E(P_{ij} P_{ji}).
 \end{align}
 %
 
-The relative occurrence $\sigma$ of such reciprocally connected pairs compares $P_{\mathbf{bidir}}$ with the occurrence of bidirectional pairs in an Erd\H{o}s-R\'{e}nyi graph, in which each unidirectional connection is equally likely to occur with probability $\mu$ \cite{Gilbert1959, Erdos1959}. The chance of a bidirectional connection in a random in such graph is simply $\mu^2$ and we obtain the relative occurrence as the quotient
+The relative occurrence $\sigma$ of such reciprocally connected pairs compares $P_{\mathbf{bidir}}$ with the occurrence of bidirectional pairs in an Erd\H{o}s-R\'{e}nyi graph, in which each unidirectional connection is equally likely to occur with probability $\mu$ \cite{Gilbert1959, Erdos1959}. The chance of a bidirectional connection in such a random graph is simply $\mu^2$ and we obtain the relative occurrence as the quotient
 %% To answer the question if this probability is deviates from the proabibility than we would expect . The probability of a bidirectional in this standard random graph is $\mu$. We can the overrepresentation of as the quotient of $
 \begin{align}
 \sigma = \frac{P_{\mathbf{bidir}}}{\mu^2} = \frac{\E(P_{ij}P_{ji})}{{\E\left(P_{ij}\right)}^2}.
@@ -47,15 +47,15 @@ and we expect to observe no overrepresentation of reciprocal connections, $\sigm
 P_{\mathbf{bidir}} = \E(P_{ij}^2).
 \end{align}
 %
-The relative occurrence of reciprocal connection then becomes
+The relative occurrence of reciprocal connections then becomes
 \begin{align}
 \sigma = \frac{\E(P_{ij}^2)}{{\E\left(P_{ij}\right)}^2}.
 \end{align}
-and we immediately see that any distribution of $P_{ij}$ with a nonvanishing variance will lead to relative occurrence that deviates from the Erd\H{o}s-R\'{e}nyi graph, $\sigma \neq 1$. Moreover, since $x \mapsto x^2$ is a strictly convex function, Jensen's inequality yields
+and we immediately see that any distribution of $P_{ij}$ with a nonvanishing variance will lead to a relative occurrence that deviates from the Erd\H{o}s-R\'{e}nyi graph, $\sigma \neq 1$. Moreover, since $x \mapsto x^2$ is a strictly convex function, Jensen's inequality yields
 \begin{align}
 \E(P_{ij}^2) \geq \E(P_{ij})^2,
 \end{align}
-where equality holds if and only if $P_{ij}$ is constant, ensuring an overrepresentation of bidirectional connections for any non-constant distribution of connection probabilities in the network. In other words, any distribution of connection probabilities, where some pairs are more likely connected than others, lead to an underestimation of the reciprocally connected pair count using the overall connection probability $\E(P_{ij}) = \mu$.
+where equality holds if and only if $P_{ij}$ is constant, ensuring an overrepresentation of bidirectional connections $\sigma > 1$ for any non-degenerate distribution of connection probabilities in the network. In other words, in a network model where some pairs are more likely connected than others, the count of expected reciprocally connected pairs is strictly underestimated by the statistics of an Erd\H{o}s-R\'{e}nyi graph with same overall connection probability $\E(P_{ij}) = \mu$.
 
 
 
