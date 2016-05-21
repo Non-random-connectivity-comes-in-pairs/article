@@ -10,7 +10,7 @@ function
 0 & \text{otherwise},
 \end{cases}
 \end{align}
-allows the variation the variance $\Var(X)= \alpha \beta^2 $ of a
+allows the variation of the variance $\Var(X)= \alpha \beta^2 $ of a
 gamma distributed random variable $X \sim \Gamma(\alpha, \beta)$ while
 keeping its mean $\E(X) = \alpha \beta $ constant \cite{Hogg1978}.
 %\cc{pages 103-105}
@@ -29,20 +29,18 @@ $\Gamma^T(\alpha, \beta)$ if it has the probability density function
 \end{cases}
 \end{align}
 %
-The factor $K_{\alpha,\beta}$ is needed due to the truncation of the
-probability density function for $x>0$ to ensure that
+The factor $K_{\alpha,\beta}$  the inverse of the cumulative
+probability $x \leq 1$ of the untruncated gamma distribution,
+\begin{align}
+  K_{\alpha,\beta} = \left(\int_0^{1} f_{\alpha,\beta}(x) \, dx \right)^{-1},
+\end{align}
+and is needed to ensure that
 \begin{align}
   \int f_{\alpha,\beta}^T(x) \,dx = 1 \label{eq:gd1}.
 \end{align}
-$K_{\alpha,\beta}$ is determined as the inverse of the cumulative
-probability $x \leq 1$ of the untruncated gamma distribution,
-\begin{align}
-  K_{\alpha,\beta} = \left(\int_0^{1} f_{\alpha,\beta}(x) \, dx \right)^{-1}.
-\end{align}
-With this the equality~\eqref{eq:gd1} clearly holds. Consider then the
-above network model in which the connection probabilities $P_{ij}$ are
-$\Gamma^T(\alpha, \beta)$ distributed. We computed the relative
-overrepresentation $\varrho$ from 
+Consider then the above network model in which the connection
+probabilities $P_{ij}$ are $\Gamma^T(\alpha, \beta)$ distributed. We
+computed the relative overrepresentation $\varrho$ numerically from
 \begin{align}
   \mu = \E(P_{ij}) &= \int_0^1 x f_{\alpha,\beta}^T(x)\, dx,\\
         \E(P_{ij}^2) &= \int_0^1 x^2 f_{\alpha,\beta}^T(x)\, dx.
@@ -54,14 +52,14 @@ reflects connectivity statistics in local cortical networks, $\mu =
 0.1$. Probability density functions and resulting relative
 overrepresentation of reciprocal connections $\varrho$ for four
 representative $\alpha,\beta$ pairs are shown in
-Figure~\ref{fig:gd}A. Here, $\beta$ is determined for $\mu = 0.1$ and
-fixed $\alpha$ numerically as shown in Figure~\ref{fig:gd}B.
+Figure~\ref{fig:gd}A. Here, $\beta$ was determined to yield $\mu =
+0.1$ for the given $\alpha$, following the relationship shown in
+Figure~\ref{fig:gd}B.
 
 In the sparse networks we modeled, the truncated gamma distribution
 can be well approximated by the untruncated version, $K_{\alpha,
   \beta} \approx 1$. Assuming connections probabilities to be standard
-gamma distributed, $P_{ij} \sim \Gamma(\alpha,\beta)$ we have
-as
+gamma distributed, $P_{ij} \sim \Gamma(\alpha,\beta)$, we have
 \begin{align}
   \E(P_{ij}^2) = \Var(P_{ij}) + \E(P_{ij})^2 =  \alpha \beta^2 + \alpha^2 \beta^2, 
 \end{align}
@@ -108,11 +106,13 @@ $\alpha \geq 1$ as shown in Figure~\ref{fig:gd}C.
   the induced relative overrepresentation $\varrho$ in a network with
   such distributed connection probabilities $P_{ij}$. For given
   $\alpha$, the scale parameter $\beta$ was chosen such that $\mu =
-  0.1$. \textbf{B} Contour of $\alpha$, $\beta$ pairings that yield an
-  overall connection probability of $\mu = 0.1$. \textbf{C} Relative
-  occurrence $\varrho$ in dependence on $\alpha$ for fixed $\mu =
-  0.1$. For $\alpha \geq 1$ this relationship is well approximated by
-  $\rho \approx 1 + \frac{1}{\alpha}$.}
+  0.1$. Plot to the right continues the density functions on a
+  different scale. \textbf{B} Contour of $\alpha$, $\beta$ pairings
+  that yield an overall connection probability of $\mu =
+  0.1$. \textbf{C} Relative occurrence $\varrho$ in dependence on
+  $\alpha$ for fixed $\mu = 0.1$. For $\alpha \geq 1$ this
+  relationship is well approximated by $\varrho \approx 1 +
+  \frac{1}{\alpha}$.}
 \label{fig:gd}
 \end{figure}
 
