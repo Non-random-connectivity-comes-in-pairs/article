@@ -47,15 +47,21 @@ and we expect to observe no overrepresentation of reciprocal connections, $\varr
 P_{\mathbf{bidir}} = \E(P_{ij}^2).
 \end{align}
 %
-The relative occurrence of reciprocal connections then becomes
+The relative occurrence of reciprocal connections becomes
 \begin{align}
 \varrho = \frac{\E(P_{ij}^2)}{{\E\left(P_{ij}\right)}^2}
 \end{align}
-and we immediately see that any distribution of $P_{ij}$ with a nonvanishing variance will lead to a relative occurrence that deviates from the Erd\H{o}s-R\'{e}nyi graph, $\varrho \neq 1$. Moreover, since $x \mapsto x^2$ is a strictly convex function, Jensen's inequality \cite{Jensen1906, Cover2006} yields
+and we note that any distribution of $P_{ij}$ with a nonvanishing variance will lead to a relative occurrence that deviates from the Erd\H{o}s-R\'{e}nyi graph, as
 \begin{align}
-\E(P_{ij}^2) \geq \E(P_{ij})^2,
+\Var(P_{ij}) = \E(P_{ij}^2) - \E\left(P_{ij}\right)^2.
 \end{align}
-where equality holds if and only if $P_{ij}$ is constant, ensuring an overrepresentation of bidirectional connections $\varrho > 1$ for any non-degenerate distribution of connection probabilities in the network. In other words, in a network model where some pairs are more likely connected than others, the count of expected reciprocally connected pairs is strictly underestimated by the statistics of an Erd\H{o}s-R\'{e}nyi graph with same overall connection probability $\E(P_{ij}) = \mu$.
+As $x \mapsto x^2$ is a strictly convex function, Jensen's inequality \cite{Jensen1906, Cover2006} yields
+\begin{align}
+\E(P_{ij}^2) \geq \E(P_{ij})^2, \label{eq:jensen}
+\end{align}
+and we find that $\varrho \geq 1$ in networks with symmetric connection probabilities. Jensen's inequality further states that equality in \eqref{eq:jensen}, and thus $\varrho = 1$, holds if and only if $P_{ij}$ is constant. As a central result of this study we thus find that any deviation of the distribution of the symmetric connection probabilities $P_{ij}$ from a constant value $p$, we say that $P_{ij}$ is a non-degenerate distribution, necessarily induces an an overrepresentation of bidirectional connections in the network, $\varrho > 1$. In other words, in a network where some pairs are more likely connected than others, the count of expected reciprocally connected pairs is strictly underestimated by the statistics of an Erd\H{o}s-R\'{e}nyi graph with same overall connection probability $\E(P_{ij}) = \mu$.
+
+%% ensuring an overrepresentation of bidirectional connections $\varrho > 1$ for any non-degenerate distribution of connection probabilities in the network. In other words, in a network model where some pairs are more likely connected than others, the count of expected reciprocally connected pairs is strictly underestimated by the statistics of an Erd\H{o}s-R\'{e}nyi graph with same overall connection probability $\E(P_{ij}) = \mu$.
 
 
 
