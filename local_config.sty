@@ -1,15 +1,11 @@
 
 \usepackage{csquotes}
 \usepackage{amsmath}
-\usepackage{amsthm}        % Does theorem stuff
 \usepackage{amssymb} 
-\usepackage{xypic}  				%for strange reason I need this to make the two cell diagrams				
-\usepackage[2cell]{xy} 			%for commutative diagrams%
 
 \usepackage{color,hyperref}
 \definecolor{darkblue}{rgb}{0.0,0.0,0.3}                      %pdf book marks the way I like%
 \hypersetup{pdftex=true, colorlinks=true, breaklinks=true, linkcolor=darkblue, menucolor=darkblue, pagecolor=darkblue, urlcolor=darkblue}
-
 
 
 \usepackage[left=4cm, right=4cm
@@ -24,147 +20,16 @@
 \parindent 0pt
 
 
-
 % -------------- comments ---------------%
 % in red:
 \newcommand{\cc}[1]{\textcolor{red}{#1}}
 
 %----------new--commands-----------------%
 
-\newcommand{\C}{\mathcal{C}}
-\renewcommand{\O}{\mathcal{O}}
-\newcommand{\D}{\mathcal{D}}
-\newcommand{\F}{\mathcal{F}}
-\newcommand{\G}{\mathcal{G}}
-\newcommand{\ve}{\varepsilon}
-\newcommand{\Mor}{\mathrm{Mor}}
-\newcommand{\id}{\operatorname{id}}
-\newcommand{\Hom}{\operatorname{Hom}}
 \newcommand{\E}{\operatorname{\mathbf{E}}}
 \newcommand{\Var}{\operatorname{\mathbf{Var}}}
 
-%this command was proposed by Stefan_K%
-\newcommand*{\leftterm}{\left\{\substack{\normalsize \text{natural transformations}
-  \\h^A \rightarrow F} \right\}}
-\newlength{\leftside}
-\settowidth{\leftside}{$\leftterm$}
 
-% the following code will uplift the \maketitle title. In standard it is way too low.
-\makeatletter % wegen @ in den Befehsnamen
-\renewcommand*\@maketitle{%
-  \normalfont\normalsize
-  \@adminfootnotes
-  \@mkboth{\@nx\shortauthors}{\@nx\shorttitle}%
-% (SCHW) auskommentiert:  \global\topskip42\p@\relax % 5.5pc   "   "   "     "     "
-  \@settitle
-  \ifx\@empty\authors \else \@setauthors \fi
-  \ifx\@empty\@dedicatory
-  \else
-    \baselineskip18\p@
-    \vtop{\centering{\footnotesize\itshape\@dedicatory\@@par}%
-      \global\dimen@i\prevdepth}\prevdepth\dimen@i
-  \fi
-  \@setabstract
-  \normalsize
-  \if@titlepage
-    \newpage
-  \else
-    \dimen@34\p@ \advance\dimen@-\baselineskip
-    \vskip\dimen@\relax
-  \fi
-} % end \@maketitle
-\makeatother
-
-
-
-
-
-
-
-%--------new--enviroments----------------%
-
-\renewcommand{\theequation}{\thesection.\arabic{equation}}         %%                             %I somehow need this for the warning symbol to work 
- \makeatletter                                                      %%                             properly, I don't really know why though%
-    \@addtoreset{equation}{section} % Make the equation counter reset each section
-    \@addtoreset{footnote}{section} % Make the footnote counter reset each section
-                                                                    %%
- \newenvironment{warning}[1][]{%                                    %%
-    \begin{trivlist} \item[] \noindent%                             %%
-    \begingroup\hangindent=2pc\hangafter=-2                         
-    \clubpenalty=10000%                                             										
-    \hbox to0pt{\hskip-\hangindent\manfntsymbol{127}\hfill}\ignorespaces%
-    \refstepcounter{equation}\textbf{Warning~\theequation}%         
-    \@ifnotempty{#1}{\the\thm@notefont \ (#1)}\textbf{.}            
-    \let\p@@r=\par \def\p@r{\p@@r \hangindent=0pc} \let\par=\p@r}%  
-    {\hspace*{\fill}$\lrcorner$\endgraf\endgroup\end{trivlist}}  
-    
-    
-%\newenvironment{beweis}{\par\begingroup%
-%\settowidth{\leftskip}{\emph{Proof.~}}%																											remove to use \begin{beweis}
-%\noindent\llap{\emph{Proof.~}}}{\hfill$\Box$\par\endgroup}     
-    
-  
-
-\newenvironment{tmo}[1]{%
-  \trivlist
-  \leftskip=0.15cm
-  \item[\hskip\labelsep
-        \bfseries
-   #1\@{.}]\mbox{ }\par\nobreak
-   \vskip -0.5em\nobreak% Absatzabstand nachträglich entfernen.
-   \noindent
-  \leftskip=0.35cm
-  \rightskip=0.35cm
-  \itshape\ignorespaces
-}{%
-\endtrivlist}
-
-\newcounter{tm}
-% Falls tm abhängig von \section nummeriert werden soll:
-%\numberwithin{tm}{section}% anderenfalls auskommentieren!!!
-\newenvironment{tm}[1]{% wie tmo aber mit Nummer
-  \refstepcounter{tm}%
-  \tmo{#1~\thetm}%
-}{%
-  \endtmo
-}
-     
-\makeatletter
-
-\renewenvironment{proof}[1][\proofname]{\par
-  \pushQED{\qed}%
-  \normalfont \topsep6\p@\@plus6\p@\relax
-  \trivlist
-  \leftskip=0.6cm
-  
-  \item[\hskip\labelsep
-        \itshape
-    #1\@addpunct{.}]\mbox{ }\par\noindent%
-  \leftskip=1cm
-  \rightskip=1cm    
-}{%
-  \popQED\endtrivlist\@endpefalse
-}
-\makeatother 
-
-\makeatother
-\theoremstyle{plain}                                               %%
- \newtheorem{theorem}[equation]{Theorem}                            %%
- \newtheorem*{claim}{Claim}                                         %%
- \newtheorem*{lemma*}{Lemma}
- \newtheorem*{proposition*}{Proposition}                                       %%
- \newtheorem*{theorem*}{Theorem}                                    %%
- \newtheorem{lemma}[equation]{Lemma}                                %%
- \newtheorem{corollary}[equation]{Corollary}                        %%
- \newtheorem{proposition}[equation]{Proposition}                    %%
- \newtheorem{definition}{Definition}
-%--produce-the-warning--symbol-----------%
- \DeclareFontFamily{U}{manual}{}                                
- \DeclareFontShape{U}{manual}{m}{n}{ <->  manfnt }{}            
- \newcommand{\manfntsymbol}[1]{%                                
-    {\fontencoding{U}\fontfamily{manual}\selectfont\symbol{#1}}}
-
-\makeatother
 
 
 
