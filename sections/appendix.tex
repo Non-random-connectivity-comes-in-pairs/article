@@ -1,5 +1,7 @@
 \subsection{Two-point distribution}
 
+\subsubsection*{A1}
+
 Solving \eqref{eq:bd1} for $p$ gives
 \begin{align}
   p = \frac{\mu-y}{x-y},
@@ -23,18 +25,11 @@ Putting everything together we get
   & = \frac{x+y}{\mu} - \frac{xy}{\mu^2}.
 \end{align}
 
-------------------------------------------------------------------------------------------------------
-
-Given $x \geq \mu$. From \eqref{eq:bd1} we have
+\subsubsection*{A2}
+Solve \eqref{eq:bd2} for $y$ and since $x \geq \mu$,
 \begin{align}
-  y = \frac{\mu - px}{1-p} \leq \frac{(1-p)x}{1-p} = x.
+y = \frac{\mu - px}{1-p} \leq \frac{\mu - p\mu}{1-p} = \mu.
 \end{align}
-
-Assume then $y > x$. It follows that
-\begin{align}
-  \mu < y = py + (1-p)y \leq px + (1-p)y = \mu
-\end{align}
-yielding a contradiction. Thus $y \leq \mu$.
 
 
 %% See aslo: \href{https://www.wolframalpha.com/input/?i=Simplify[%28%28%28c-y%29%2F%28x-y%29%29*x^2%2B%281-%28%28c-y%29%2F%28x-y%29%29%29*y^2%29%2Fc^2]}{Wolfram Alpha}.

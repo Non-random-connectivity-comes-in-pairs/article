@@ -1,5 +1,5 @@
 
-The simplest non-degenerate distribution of connection probabilities is a distribution that takes two values $x$, $y$ with probability $p$ and $1-p$ respectively. Formally, let $0 \leq x,y \leq 1$ with $x \neq y$  and $0 < p < 1$. A random variable $X$ follows the two-point distribution %% \cc{(\enquote{Zweitpunktverteilung}, \href{https://de.wikipedia.org/wiki/Zweipunktverteilung}{Wiki})}
+The simplest non-degenerate distribution of connection probabilities is a distribution that takes two values $x$, $y$ with probability $p$ and $1-p$ respectively. Formally, let $x,y \in [0,1]$ with $x > y$ and $0 < p < 1$. A random variable $X$ follows the two-point distribution %% \cc{(\enquote{Zweitpunktverteilung}, \href{https://de.wikipedia.org/wiki/Zweipunktverteilung}{Wiki})}
 $\mathcal{T}(p,x,y)$ if $P(X=x)=p$ and $P(X=y) = 1-p$. 
 
 In our network model let then the $P_{ij}$ be $\mathcal{T}(p,x,y)$ distributed. The overall connection probability $\mu$ is
@@ -14,7 +14,7 @@ Assume again that $P_{ij} = P_{ji}$. The relative occurrence of bidirectional co
 \begin{align}
   \varrho = \frac{\E(P_{ij}^2)}{\mu^2} = \frac{p x^2 + (1-p) y^2}{\mu^2} \label{eq:bd2}
 \end{align}
-Solving \eqref{eq:bd1} for $p$ and inserting into equation~\eqref{eq:bd2} yields an expression for the relative overrepresentation depending on $x$, $y$ and $\mu$ (see Appendix),
+Solving \eqref{eq:bd1} for $p$ and inserting into equation~\eqref{eq:bd2} yields an expression for the relative overrepresentation depending on $x$, $y$ and $\mu$ (\cc{Appendix A1}),
 \begin{align}
 \varrho = \frac{x+y}{\mu} - \frac{xy}{\mu^2}.
 \end{align}
@@ -22,11 +22,11 @@ Solving \eqref{eq:bd1} for $p$ and inserting into equation~\eqref{eq:bd2} yields
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.675\textwidth]{../lab/two_point_distribution/contour_plot.png}
-\caption{Contour plot shows the relative overrepresentation $\varrho$ obtained from different pairings of $x$ and $y$ for two-point distributed connection probabilities, $P_{ij} \sim \mathcal{T}(\frac{\mu-y}{x-y},x,y)$ with $\mu = 0.1$. The dashed line marks an overrepresentation of bidirectional connections of $\varrho=4$ as observed by \textcite{Song2005} in their experimental study.}
+\caption{Contour plot shows the relative overrepresentation $\varrho$ obtained from different pairings of $x$ and $y$ in a network with two-point distributed connection probabilities, $P_{ij} \sim \mathcal{T}(\frac{\mu-y}{x-y},x,y)$, and overall connection probability $\mu = 0.1$. The dashed line marks an overrepresentation of bidirectional connections of $\varrho=4$ as observed by \textcite{Song2005} in their experimental study.}
 \label{fig:tp}
 \end{figure}
 
-In local cortical circuits, a single excitatory neuron is typically projecting to roughly 10\% of the excitatory population. Fixing $\mu = 0.1$, we obtain the relative occurrence dependent on the two connection probability values $x$ and $y$. Without restriction we can assume $x \geq \mu$ and it follows that $y \leq \mu$ (see Appendix). Possible values for $x$ and $y$ are then $0.1 \leq x \leq 1$ and $0 \leq y \leq 0.1$. Figure~\ref{fig:tp} shows contours of $\varrho$ for the $(x,y)$ pairings illustrating how different values for the relative overrepresentation of reciprocal connections can be induced by two-point distributed connection probabilities.  
+In local cortical circuits, a single excitatory neuron is typically projecting to roughly 10\% of the excitatory population. Fixing $\mu = 0.1$, we obtain the relative occurrence dependent on the two connection probability values $x$ and $y$. Given $x \geq \mu$ it follows that $y \leq \mu$ (\cc{Appendix A2}) and the possible values for $x$ and $y$ are $0.1 \leq x \leq 1$ and $0 \leq y \leq 0.1$. Figure~\ref{fig:tp} shows contours of $\varrho$ for the $(x,y)$ pairings illustrating how different values for the relative overrepresentation of reciprocal connections can be induced by two-point distributed connection probabilities.  
 
 
 
