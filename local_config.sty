@@ -22,6 +22,15 @@
 \addtolength{\parskip}{\baselineskip} %AbsÃ¤tze im Text werden auch tatsÃ¤chlich zu AbsÃ¤tzen%
 \parindent 0pt
 
+\makeatletter
+\g@addto@macro\normalsize{%
+  \setlength\abovedisplayskip{12pt}
+  \setlength\belowdisplayskip{12pt}
+  \setlength\abovedisplayshortskip{10pt}
+  \setlength\belowdisplayshortskip{10pt}
+}
+\makeatother
+
 
 
 % -------------- comments ---------------%
