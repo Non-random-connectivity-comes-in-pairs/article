@@ -13,9 +13,9 @@
 %% where $P=P_{ij}$ are identically distributed continuous random variables with values in $[0,1]$. We write the of probability density function of the $P_{ij}$ as $f_{P_{ij}}$.
 
 
-The emergence of non-random connectivity patterns can be modeled by assigning each connection in a random graph a separate probability $P_{ij}$ to exist. In such a model some connections are more likely to be realized than others, allowing for the encoding of patterns within the specific probabilities of each connection. In the limiting case each connection either exists or is absent with certainty, $P_{ij} \in \{0,1\}$, presenting a blueprint for the network architecture.
+The emergence of non-random connectivity patterns can be modeled by assigning each possible connection in a random graph a separate probability $P_{ij}$ to exist. In such a model some connections are more likely to be realized than others, allowing for the encoding of patterns within the specific probabilities of each connection. In the limiting case each connection either exists or is absent with certainty, $P_{ij} \in \{0,1\}$, presenting a blueprint for the network architecture.
 
-To analyze the effect of non-random patterns within a network, specifically on the statistics of bidirectionally connected pairs found in the network, we consider a random graph model of $N$ neurons in which a connection from node $i$ to node $j$ exists with probability $P_{ij}$. Here the $(P_{ij})_{i,j=1,\dots,N}$ are identically distributed random variables in $[0,1]$, yielding a probability of connection for each ordered pair of nodes in the graph.  
+To analyze the effect of non-random structures within a network, specifically on the statistics of bidirectionally connected pairs found in the network, we consider a random graph model of $N$ neurons in which a connection from node $i$ to node $j$ exists with probability $P_{ij}$. Here the $(P_{ij})_{i,j=1,\dots,N}$ are identically distributed random variables in $[0,1]$, yielding a probability of connection for each ordered pair of nodes in the graph.  
 
 Given the $(P_{ij})_{i,j=1,\dots,N}$, what is then the probability in this model for a random node to have a projection to another random node in the network? We compute this overall connection probability $\mu$ easily as the expected value of~$P_{ij}$,
 \begin{align}
@@ -31,7 +31,7 @@ In this work we are interested in the probability $P_{\mathbf{bidir}}$ of a bidi
 P_{\mathbf{bidir}} = \E(P_{ij} P_{ji}).
 \end{align}
 %
-The relative occurrence $\varrho$ of such reciprocally connected pairs compares $P_{\mathbf{bidir}}$ with the occurrence of bidirectional pairs in an Erd\H{o}s-R\'{e}nyi graph, in which each unidirectional connection is equally likely to occur with probability $\mu$ \cite{Gilbert1959, Erdos1959}. The chance of a bidirectional connection in such a random graph is simply $\mu^2$ and we obtain the relative occurrence as the quotient
+The relative occurrence $\varrho$ of such reciprocally connected pairs compares $P_{\mathbf{bidir}}$ with the occurrence of bidirectional pairs in an Erd\H{o}s-R\'{e}nyi graph, in which each unidirectional connection is equally likely to occur with probability $\mu$ \cite{Gilbert1959, Erdos1959}. The probability of a particular bidirectional connection to exist in such a random graph is simply $\mu^2$ and we obtain the relative occurrence as the quotient
 %% To answer the question if this probability is deviates from the proabibility than we would expect . The probability of a bidirectional in this standard random graph is $\mu$. We can the overrepresentation of as the quotient of $
 \begin{align}
 \varrho = \frac{P_{\mathbf{bidir}}}{\mu^2} = \frac{\E(P_{ij}P_{ji})}{{\E\left(P_{ij}\right)}^2}.
