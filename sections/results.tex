@@ -13,11 +13,38 @@
 %% where $P=P_{ij}$ are identically distributed continuous random variables with values in $[0,1]$. We write the of probability density function of the $P_{ij}$ as $f_{P_{ij}}$.
 
 
-The emergence of non-random connectivity patterns can be modeled by assigning each possible connection in a random graph a separate probability $P_{ij}$ to exist. In such a model some connections are more likely to be realized than others, allowing for the encoding of patterns within the specific probabilities of each connection. In the limiting case each connection either exists or is absent with certainty, $P_{ij} \in \{0,1\}$, presenting a blueprint for the network architecture.
+The emergence of non-random connectivity patterns can be modeled by
+assigning each possible connection in a random graph a separate
+probability $P_{ij}$ to exist.
+%
+In such a model some connections are more likely to be realized than
+others, allowing for the encoding of patterns within the specific
+probabilities of each connection.
+%
+In the limiting case each connection either exists or is absent with
+certainty, $P_{ij} \in \{0,1\}$, presenting a blueprint for the
+network architecture.
+%
 
-To analyze the effect of non-random structures within a network, specifically on the statistics of bidirectionally connected pairs found in the network, we consider a random graph model of $N$ neurons in which a connection from node $i$ to node $j$ exists with probability $P_{ij}$. Here the $(P_{ij})_{i,j=1,\dots,N}$ are identically distributed random variables in $[0,1]$, yielding a probability of connection for each ordered pair of nodes in the graph.  
+%
+To analyze the effect of non-random structures within a network,
+specifically on the statistics of bidirectionally connected pairs
+found in the network, we consider a random graph model of $N$ neurons
+in which a connection from node $i$ to node $j$ exists with
+probability $P_{ij}$.
+%
+Here the $(P_{ij})_{i,j=1,\dots,N}$ are identically distributed random
+variables in $[0,1]$, yielding a probability of connection for each
+ordered pair of nodes in the graph.
+%
 
-Given the $(P_{ij})_{i,j=1,\dots,N}$, what is then the probability in this model for a random node to have a projection to another random node in the network? We compute this overall connection probability $\mu$ easily as the expected value of~$P_{ij}$,
+%
+Given the $(P_{ij})_{i,j=1,\dots,N}$, what is then the probability in
+this model for a random node to have a projection to another random
+node in the network?
+%
+We compute this overall connection probability $\mu$ easily as the
+expected value of~$P_{ij}$,
 \begin{align}
 \mu = \E(P_{ij}).
 \end{align}
@@ -25,7 +52,11 @@ Given the $(P_{ij})_{i,j=1,\dots,N}$, what is then the probability in this model
 %% Here, we are interested in the probability $P_{\mathbf{bidir}}$ of finding In a random pair of neurons, the probability  to find a bidirectional connection is the expected value of the product of $P=P_{ij}$ and $Q=P_{ji}$. With their respective density functions $f_P$, $f_Q$ and their joint probability density function $f_{PQ}$ we have
 %
 %
-In this work we are interested in the probability $P_{\mathbf{bidir}}$ of a bidirectional connection to exist in a random pair of neurons. We determine $P_{\mathbf{bidir}}$ as the expected value of the product of $P_{ij}$ and $P_{ji}$,
+In this work we are interested in the probability $P_{\mathbf{bidir}}$
+of a bidirectional connection to exist in a random pair of neurons.
+%
+We determine $P_{\mathbf{bidir}}$ as the expected value of the product
+of $P_{ij}$ and $P_{ji}$,
 %
 \begin{align}
 P_{\mathbf{bidir}} = \E(P_{ij} P_{ji}).

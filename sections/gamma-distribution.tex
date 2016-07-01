@@ -16,10 +16,12 @@ keeping its mean $\E(X) = \alpha \beta $ constant \cite{Hogg1978}.
 The exponential distribution emerges as a special case of the gamma
 distribution ($\alpha =1$).
 
-Here we consider a slight modification to the traditional gamma
-distribution in the form of a truncated version. Let $\alpha, \beta >
-0$. A random variable $X$ follows the truncated gamma distribution
-$\Gamma^T(\alpha, \beta)$ if it has the probability density function
+To ensure that the randomly drawn connection probabilities lie within the
+interval $[0,1]$, we here consider a modification to the
+traditional gamma distribution in the form of a truncated version. Let
+$\alpha, \beta > 0$. A random variable $X$ follows the truncated gamma
+distribution $\Gamma^T(\alpha, \beta)$ if it has the probability
+density function
 %
 \begin{align}
   f_{\alpha,\beta}^T(x) = \begin{cases} K_{\alpha, \beta}\,
@@ -123,3 +125,12 @@ $\alpha \geq 1$ as shown in Figure~\ref{fig:gd}C.
 
 %References: \href{http://herbsusmann.com/distributions/gamma-distribution-variance-proof.html}{Proof $\E(X^2)$}, 
 
+To induce a high overrepresentation of reciprocal pairs in the network
+the gamma distribution of connection probabilities takes a highly
+skewed shape. For $\varrho = 4$ only $XX\%$ of pairs are connected
+with a probability higher than $0.01\%$. In other words the majority
+of neuronal pairs are almost uncertaintly unconnected. Such a
+situation could be likely in distance-dependence is a strong factor
+determining network connectivity as in sufficient large networks, most
+targets are located far from specific neuron, making projections to
+these targets unlikely.
