@@ -59,18 +59,18 @@ Figure~\ref{fig:gd}B.
 
 In the sparse networks we modeled, the truncated gamma distribution
 can be well approximated by the untruncated version, $K_{\alpha,
-  \beta} \approx 1$. Assuming connections probabilities to be standard
+  \beta} \approx 1$. Assuming connection probabilities to be standard
 gamma distributed, $P_{ij} \sim \Gamma(\alpha,\beta)$, we have
 \begin{align}
   \E(P_{ij}^2) = \Var(P_{ij}) + \E(P_{ij})^2 =  \alpha \beta^2 + \alpha^2 \beta^2, 
 \end{align}
 and thus
 \begin{align}
-  \frac{\E(P_{ij}^2)}{\E(P_{ij})^2} = \frac{\alpha^2 \beta^2}{\alpha^2 \beta^2} + \frac{\alpha \beta^2}{\alpha^2 \beta^2} =
+  \tilde{\varrho} := \frac{\E(P_{ij}^2)}{\E(P_{ij})^2} = \frac{\alpha^2 \beta^2}{\alpha^2 \beta^2} + \frac{\alpha \beta^2}{\alpha^2 \beta^2} =
  1 + \frac{1}{\alpha}.
 \end{align}
-The approximation $\varrho = 1 + \frac{1}{\alpha}$ works well for
-$\alpha \geq 1$ as shown in Figure~\ref{fig:gd}C.
+The approximation $\varrho \approx \tilde{\varrho} = 1 + \frac{1}{\alpha}$ works well for
+$\alpha \geq 1$ as shown in Figure~\ref{fig:gd}C. \cc{you asked me to use $\varrho$ in the equation above, but it's an approximation so don't want to do that. I introduced $\tilde{\varrho}$ instead, I don't know if that makes it better}.
 
 
 \begin{figure}[h!]
@@ -125,12 +125,12 @@ $\alpha \geq 1$ as shown in Figure~\ref{fig:gd}C.
 
 %References: \href{http://herbsusmann.com/distributions/gamma-distribution-variance-proof.html}{Proof $\E(X^2)$}, 
 
-To induce a high overrepresentation of reciprocal pairs in the network
-the gamma distribution of connection probabilities takes a highly
-skewed shape. For $\varrho = 4$ only $XX\%$ of pairs are connected
-with a probability higher than $0.01\%$. In other words the majority
-of neuronal pairs are almost uncertaintly unconnected. Such a
-situation could be likely in distance-dependence is a strong factor
-determining network connectivity as in sufficient large networks, most
-targets are located far from specific neuron, making projections to
-these targets unlikely.
+To induce a high overrepresentation of reciprocal pairs in the
+network, the gamma distribution of connection probabilities takes a
+highly skewed shape. In order to obtain $\varrho = 4$, only $57\%$ of
+pairs have a higher connection probability than $0.01$
+($\alpha=0.248$, $\beta = 0.487$). In other words, almost half of all
+neuronal pairs are almost certainly unconnected. Such a situation
+could be likely if, e.g., the connection probability strongly depends
+on the spatial separation of the neurons such that only nearby neurons
+are likely to be connected.
