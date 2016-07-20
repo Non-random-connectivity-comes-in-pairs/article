@@ -30,7 +30,11 @@ bidirectional connections is given by
 \begin{align}
   \varrho = \frac{\E(P_{ij}^2)}{\mu^2} = \frac{p x^2 + (1-p) y^2}{\mu^2} \label{eq:bd2}.
 \end{align}
-Solving \eqref{eq:bd1} for $p$ and inserting into
+Solving \eqref{eq:bd1} for $p$ as
+\begin{align}
+p = \frac{\mu - y}{x-y}
+\end{align}
+and inserting into
 equation~\eqref{eq:bd2} yields an expression for the relative
 overrepresentation depending on $x$, $y$ and $\mu$ (\cc{Appendix A1}),
 \begin{align}
@@ -44,11 +48,11 @@ overrepresentation depending on $x$, $y$ and $\mu$ (\cc{Appendix A1}),
   img/contour_plot.pdf}
 \caption{Contour plot shows the relative overrepresentation $\varrho$
   obtained from different pairings of $x$ and $y$ in a network with
-  two-point distributed connection probabilities, $P_{ij} \sim
-  \mathcal{T}(\frac{\mu-y}{x-y},x,y)$, and overall connection
-  probability $\mu = 0.1$. The dashed line marks an overrepresentation
-  of bidirectional connections of $\varrho=4$ as observed by
-  \textcite{Song2005} in their experimental study.}
+  two-point distributed connection probabilities,
+  $P_{ij} \sim \mathcal{T}(\frac{\mu-y}{x-y},x,y)$, and overall
+  connection probability $\mu = 0.1$. The dashed line marks an
+  overrepresentation of bidirectional connections of $\varrho=4$ as
+  observed in the experiments of \textcite{Song2005}.}
 \label{fig:tp}
 \end{figure}
 
