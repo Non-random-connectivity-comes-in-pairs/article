@@ -30,16 +30,20 @@ network architecture.
 To analyze the effect of non-random structures within a network,
 specifically on the statistics of bidirectionally connected pairs
 found in the network, we consider a random graph model of $N$ neurons
-in which a connection from node $i$ to node $j$ exists with
+in which a connection from node $i$ to node $j$ with $i \neq j$ exists with
 probability $P_{ij}$.
 %
-Here the $(P_{ij})_{i,j=1,\dots,N}$ are identically distributed random
-variables in $[0,1]$, yielding a probability of connection for each
-ordered pair of nodes in the graph.
+Here the $(P_{ij})_{I}$, where  $I = \{(i,j) \mid i,j = 1,\dots,N\, \textrm{and}\, i \neq j\}$, are identically
+distributed random variables in $[0,1]$, yielding a probability of
+connection for each ordered pair of nodes in the graph. % Below we're assuming $i \neq j $ in all cases.
+% where we
+%always assume $i \neq as it does not make sense to consider
+%bidirectional connectivity in
+%% self-connections.
 %
 
 %
-Given the $(P_{ij})_{i,j=1,\dots,N}$, what is then the probability in
+Given the $(P_{ij})_I$, what is then the probability in
 this model for a random node to have a projection to another random
 node in the network?
 %
