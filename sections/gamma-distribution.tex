@@ -56,22 +56,7 @@ representative $\alpha,\beta$ pairs are shown in
 Figure~\ref{fig:gd}A. Here, $\beta$ was determined to yield $\mu =
 0.1$ for the given $\alpha$, following the relationship shown in
 Figure~\ref{fig:gd}B.
-
-In the sparse networks we modeled, the truncated gamma distribution
-can be well approximated by the untruncated version, $K_{\alpha,
-  \beta} \approx 1$. Assuming connection probabilities to be standard
-gamma distributed, $P_{ij} \sim \Gamma(\alpha,\beta)$, we have
-\begin{align}
-  \E(P_{ij}^2) = \Var(P_{ij}) + \E(P_{ij})^2 =  \alpha \beta^2 + \alpha^2 \beta^2, 
-\end{align}
-and thus
-\begin{align}
-  \tilde{\varrho} := \frac{\E(P_{ij}^2)}{\E(P_{ij})^2} = \frac{\alpha^2 \beta^2}{\alpha^2 \beta^2} + \frac{\alpha \beta^2}{\alpha^2 \beta^2} =
- 1 + \frac{1}{\alpha}.
-\end{align}
-The approximation $\varrho \approx \tilde{\varrho} = 1 + \frac{1}{\alpha}$ works well for
-$\alpha \geq 1$ as shown in Figure~\ref{fig:gd}C. [!!!\cc{you asked me to use $\varrho$ in the equation above, but it's an approximation so don't want to do that. I introduced $\tilde{\varrho}$ instead, I don't know if that makes it better}!!!]
-
+\vspace{0.2cm}
 
 \begin{figure}[h!]
 \centering
@@ -94,6 +79,22 @@ $\alpha \geq 1$ as shown in Figure~\ref{fig:gd}C. [!!!\cc{you asked me to use $\
   \frac{1}{\alpha}$.}
 \label{fig:gd}
 \end{figure}
+\vspace{0.2cm}
+
+In the sparse networks we modeled, the truncated gamma distribution
+can be well approximated by the untruncated version, $K_{\alpha,
+  \beta} \approx 1$. Assuming connection probabilities to be standard
+gamma distributed, $P_{ij} \sim \Gamma(\alpha,\beta)$, we have
+\begin{align}
+  \E(P_{ij}^2) = \Var(P_{ij}) + \E(P_{ij})^2 =  \alpha \beta^2 + \alpha^2 \beta^2, 
+\end{align}
+and thus
+\begin{align}
+  \tilde{\varrho} := \frac{\E(P_{ij}^2)}{\E(P_{ij})^2} = \frac{\alpha^2 \beta^2}{\alpha^2 \beta^2} + \frac{\alpha \beta^2}{\alpha^2 \beta^2} =
+ 1 + \frac{1}{\alpha}.
+\end{align}
+The approximation $\varrho \approx \tilde{\varrho} = 1 + \frac{1}{\alpha}$ works well for
+$\alpha \geq 1$ as shown in Figure~\ref{fig:gd}C. \cc{[Felix: you asked me to use $\varrho$ in the equation above, but it's an approximation so don't want to do that. I introduced $\tilde{\varrho}$ instead, I don't know if that makes it better]}
 
 %% In Figure~\ref{fig:gd} probability density functions for multiple
 %% parameter sets $(\alpha, \beta)$ are shown. The rate parameter $\beta$
