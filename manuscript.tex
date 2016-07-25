@@ -1,20 +1,32 @@
 
-%\documentclass[11pt, paper=a4]{article}
-\documentclass[paper=a4]{scrartcl}
+\documentclass[11pt, paper=a4]{article}
+\usepackage[left=4.5cm, right=4.5cm, %showframe
+]{geometry}
+
+%% \documentclass[paper=a4]{scrartcl}
+%% \usepackage[left=4cm, right=4cm, %showframe
+%% ]{geometry}
 
 \usepackage{local_config}
 
+\usepackage{titling}
+\setlength{\droptitle}{-6em}   
+
 \usepackage{authblk}
+%\usepackage{titling}
+
+%\setlength{\droptitle}{-10em}
 
 \renewcommand\Affilfont{\fontsize{9}{10.8}\itshape}
+%\renewcommand\Abstractfont{\fontsize{11pt}}
 
-\title{Non-random network connectivity comes in pairs}
+\title{Non-random network connectivity comes in pairs\vspace{-2ex}}
 \date{}
 \author[1,2]{Felix Z.~Hoffmann}
 \author[1]{Jochen Triesch}
 
 \affil[1]{Frankfurt Institute for Advanced Studies (FIAS), Johann Wolfgang Goethe University, Frankfurt am Main, Germany}
-\affil[2]{International Max Planck Research School for Neural Circuits, Max Planck Institute for Brain Research, Frankfurt am Main, Germany}
+\affil[2]{International Max Planck Research School for Neural Circuits, Max Planck Institute for Brain Research, Frankfurt am Main, Germany\vspace{-12ex}}
 
 \renewcommand\Authands{ and }
 
