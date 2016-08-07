@@ -1,4 +1,5 @@
 
+
 %% Consider a network with nodes $x_1,\dots,x_{N}$. Let there be a connection from node $x_i$ to $x_j$ with probability $P_{ij}$. Typically, . However, it is highly unlikely that all nodes are connected with the same probability. 
 
 %% Thus let the $P_{ij}$ be identically distributed continuous random variables with values in $[0,1]$. We write the of probability density function of the $P_{ij}$ as $f_{P_{ij}}$.
@@ -14,28 +15,27 @@
 
 
 The emergence of non-random connectivity patterns can be modeled by
-assigning each possible connection from a node $i$ to a node $j$ in a
-random graph a separate probability $P_{ij}$ to exist.
+assigning each possible connection in a random graph a separate
+probability to exist.
 %
 In such a model some connections are more likely to be realized than
 others, allowing for the encoding of patterns within the specific
 probabilities of each connection.
 %
 In the limiting case each connection either exists or is absent with
-certainty, $P_{ij} \in \{0,1\}$, presenting a blueprint for the
-network architecture.
+certainty, representing a blueprint for the network architecture.
 %
 
 %
 To analyze the effect of non-random structures within a network,
 specifically on the statistics of bidirectionally connected pairs
 found in the network, we consider a random graph model of $N$ neurons
-in which a connection from node $i$ to node $j$ with $i \neq j$ exists with
+in which a connection from node $i$ to node $j$ exists with
 probability $P_{ij}$.
 %
-Here the $(P_{ij})_{I}$, where  $I = \{(i,j) \mid i,j = 1,\dots,N\, \textrm{and}\, i \neq j\}$, are identically
+Here the $P_{ij}$, with $i,j = 1,\dots,N$ and $i \neq j$, are identically
 distributed random variables in $[0,1]$, yielding a probability of
-connection for each ordered pair of nodes in the graph. % Below we're assuming $i \neq j $ in all cases.
+connection for each ordered pair of nodes in the graph. We explicitly exclude self-connections in this model and assume at all times that $i \neq j$.% Below we're assuming $i \neq j $ in all cases.
 % where we
 %always assume $i \neq as it does not make sense to consider
 %bidirectional connectivity in
@@ -43,16 +43,22 @@ connection for each ordered pair of nodes in the graph. % Below we're assuming $
 %
 
 %
-Given the $(P_{ij})_I$, what is then the probability in
-this model for a random node to have a projection to another random
-node in the network?
+Given the distributions of connection probabilities, what is
+then the probability in this model for a randomly selected node to have a
+projection to another randomly selected node?
 %
-We compute this overall connection probability $\mu$ easily as the
+As the random variables $P_{ij}$ are identically distributed, we
+compute this overall connection probability $\mu$ easily as the
 expected value of~$P_{ij}$,
 \begin{align}
 \mu = \E(P_{ij}).
 \end{align}
 %
+\cc{[Felix: You asked: \enquote{Do we need to clarify what exactly we mean with the expected value? A possible confusion could arise regarding whether we also sum over pairs $P_{ii}$ or not. I assume you don’t, but is it really clear?} \\ It doesn't seem to be clear. There's actually no summation at all. Since the $P_{ij}$ (excluding $i=j$) are identically distributed,
+\begin{align}
+  \E\left(\frac{1}{N(N-1)} \sum_{i \neq j} P_{ij} \right) = \E(P_{ij})
+\end{align}
+Since all $P_{ij}$ (again excluding $i=j$) are identically distributed and only the probability distribution matters for the expected value, I believed writing $\E(P_{ij})$ is clear enough, referring to the expected value of any (and thus of all) $P_{ij}$. The equation I wrote above seems redundant, please make a suggstion how to make things more clear. I added some expression that might help.]}\\
 %% Here, we are interested in the probability $P_{\mathbf{bidir}}$ of finding In a random pair of neurons, the probability  to find a bidirectional connection is the expected value of the product of $P=P_{ij}$ and $Q=P_{ji}$. With their respective density functions $f_P$, $f_Q$ and their joint probability density function $f_{PQ}$ we have
 %
 %
