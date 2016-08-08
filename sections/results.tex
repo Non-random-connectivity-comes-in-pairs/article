@@ -13,7 +13,7 @@
 %% \]
 %% where $P=P_{ij}$ are identically distributed continuous random variables with values in $[0,1]$. We write the of probability density function of the $P_{ij}$ as $f_{P_{ij}}$.
 
-
+\cc{[Felix: Please read next 3 paragraphs carefully and let me know whether it has improved. I tried to address all of your concerns and comments.]}
 The emergence of non-random connectivity patterns can be modeled by
 assigning each possible connection in a random graph a separate
 probability to exist.
@@ -82,26 +82,28 @@ Experimental studies in local cortical circuits of rodents have repeatedly repor
 \begin{align}
 \E(P_{ij} P_{ji}) = \E(P_{ij})\,\E(P_{ji}) = \E(P_{ij})^2,
 \end{align}
-and we expect to observe no overrepresentation of reciprocal connections, $\varrho = 1$. However, if in the second case connection probabilities are symmetric in pairs, $P_{ij} = P_{ji}$, then 
+and we expect to observe no overrepresentation of reciprocal connections, $\varrho = 1$.  In the second case, assume that connection probabilities are symmetric in pairs, $P_{ij} = P_{ji}$. In this case,
 \begin{align}
-P_{\mathbf{bidir}} = \E(P_{ij}^2).
+P_{\mathbf{bidir}} = \E(P_{ij}^2),
 \end{align}
 %
-The relative occurrence of reciprocal connections becomes
+and the relative occurrence of reciprocal connections becomes
 \begin{align}
-\varrho = \frac{\E(P_{ij}^2)}{{\E\left(P_{ij}\right)}^2}
+\varrho = \frac{\E(P_{ij}^2)}{{\E\left(P_{ij}\right)}^2}.
 \end{align}
-and we note that any distribution of $P_{ij}$ with a nonvanishing variance will lead to a relative occurrence that deviates from the Erd\H{o}s-R\'{e}nyi graph, as
+We note that now any distribution of $P_{ij}$ with a nonvanishing
+variance will lead to a relative occurrence that deviates from the
+Erd\H{o}s-R\'{e}nyi graph, as
 \begin{align}
 \Var(P_{ij}) = \E(P_{ij}^2) - \E\left(P_{ij}\right)^2.
 \end{align}
-Since $x \mapsto x^2$ is a strictly convex function, Jensen's inequality \cite{Jensen1906, Cover2006} yields
+Moreover, since $x \mapsto x^2$ is a strictly convex function, Jensen's inequality \cite{Jensen1906, Cover2006} yields
 \begin{align}
 \E(P_{ij}^2) \geq \E(P_{ij})^2, \label{eq:jensen}
 \end{align}
 and we find that $\varrho \geq 1$ in networks with symmetric connection probabilities. Jensen's inequality further states that equality in \eqref{eq:jensen}, and thus $\varrho = 1$, holds if and only if $P_{ij}$ follows a degenerate distribution, that is if the distribution of $P_{ij}$ is a constant. In the other case, where the $P_{ij}$ take on more than one value with non-zero probability, we speak of a non-degenerate distribution.
 
-As a central result of this study we thus find that any non-degenerate distribution of symmetric connection probabilities ($P_{ij} = P_{ji}$) necessarily induces an an overrepresentation of bidirectional connections in the network, $\varrho > 1$. In other words, in a network where some pairs are more likely connected than others, the count of expected reciprocally connected pairs is strictly underestimated by the statistics of an Erd\H{o}s-R\'{e}nyi graph with same overall connection probability $\E(P_{ij}) = \mu$.
+As a central result of this study we thus find that any non-degenerate distribution of symmetric connection probabilities ($P_{ij} = P_{ji}$) necessarily induces an overrepresentation of bidirectional connections in the network, $\varrho > 1$. In other words, in a network where some pairs are more likely connected than others, the count of expected reciprocally connected pairs is strictly underestimated by the statistics of an Erd\H{o}s-R\'{e}nyi graph with same overall connection probability $\E(P_{ij}) = \mu$.
 
 %% ensuring an overrepresentation of bidirectional connections $\varrho > 1$ for any non-degenerate distribution of connection probabilities in the network. In other words, in a network model where some pairs are more likely connected than others, the count of expected reciprocally connected pairs is strictly underestimated by the statistics of an Erd\H{o}s-R\'{e}nyi graph with same overall connection probability $\E(P_{ij}) = \mu$.
 
