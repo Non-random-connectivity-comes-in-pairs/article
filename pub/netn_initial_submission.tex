@@ -1,0 +1,85 @@
+
+\documentclass[11pt, a4paper]{article}
+\usepackage[left=4cm, right=4cm, %showframe
+]{geometry}
+
+%% \documentclass[paper=a4]{scrartcl}
+%% \usepackage[left=4cm, right=4cm, %showframe
+%% ]{geometry}
+
+\usepackage{local_config}
+
+\usepackage{titling}
+\setlength{\droptitle}{-7em}
+
+\usepackage{abstract}
+\renewcommand{\abstractname}{}    % clear the title
+\renewcommand{\absnamepos}{empty} % originally center
+
+\usepackage{authblk}
+
+\renewcommand\Affilfont{\fontsize{9}{10.8}\itshape}
+%\renewcommand\Abstractfont{\fontsize{11pt}}
+
+\title{Non-random network connectivity comes in pairs\vspace{-2ex}}
+\date{}
+\author[1,2,*]{Felix Z.~Hoffmann}
+\author[1]{Jochen Triesch}
+
+\affil[1]{Frankfurt Institute for Advanced Studies (FIAS), Johann Wolfgang Goethe University, Frankfurt am Main, Germany}
+\affil[2]{International Max Planck Research School for Neural Circuits, Max Planck Institute for Brain Research, Frankfurt am Main, Germany\vspace{3ex}}
+\affil[*]{Email: hoffmann@fias.uni-frankfurt.de\vspace{-13.5ex}}
+\renewcommand\Authands{ and }
+
+
+\begin{document}
+
+\input{sections/head}
+
+\section*{Introduction}
+
+  \input{sections/introduction}
+
+\section*{Results}
+
+  \input{sections/results}
+
+  \subsection*{Upper bound for $\varrho$}
+
+    \input{sections/upper_bound.tex}
+
+  \subsection*{Two-point distribution}  
+
+    \input{sections/two-point-distribution}
+
+  \subsection*{Gamma distribution}
+
+    \input{sections/gamma-distribution}
+
+     
+\section*{Discussion}
+
+\input{sections/discussion}
+
+
+\newpage
+\section*{Supplementary Material}
+The supplementary information document for references SI1 and SI2 is available online at \textsc{doi}:~\texttt{\href{https://dx.doi.org/10.6084/m9.figshare.3501860}{10.6084/m9.figshare.3501860}}. Python code for the numerical computations is available as a GitHub repository and was archived at \textsc{doi}:~\texttt{\href{http://doi.org/10.5281/zenodo.154007}{10.5281/zenodo.154007}}. A website documenting the code is found at \texttt{\href{https://non-random-connectivity-comes-in-pairs.github.io/}{https://non-random-connectivity-comes-in-pairs.github.io/}}.
+
+\section*{Acknowledgements}
+JT is supported by the Quandt foundation.
+
+
+  
+%\section{Appendix}
+
+% \input{sections/appendix}
+
+%\clearpage
+
+\printbibliography
+  
+  
+\end{document}
+
+
