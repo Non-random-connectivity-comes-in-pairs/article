@@ -1,0 +1,39 @@
+
+-- How likely is the symmetry assumption in cortical circuits? --
+
+However, even when pairs . This can be demonstrated by considering a model of in which .
+
+Consider for this that connection probabilities $P_{ij}$ are distributed according to some probability density function $f_{P_{ij}}$. The expected probability of reciprocal connections can then be expressed as
+%
+\begin{align}
+  \E(P_{ij}P_{ji}) = \int_0^1 \int_0^1 xy\, f_{P_{ij},P_{ji}}(x,y) \, dx\, dy,
+\end{align}
+%
+where $f_{P_{ij},P_{ji}}(x,y)$ is the joint probability density function of $P_{ij}$ and $P_{ij}$, 
+%
+\begin{align}
+  f_{P_{ij},P_{ji}}(x,y) =  f_{P_{ji} | P_{ij}}(y \mid x) f_{P_{ij}}(x)
+\end{align}
+%
+In the independent case, in the case. Here we propose
+%
+\begin{align}
+  f_{P_{ji}|P_{ij}} (y \mid x) = \frac{1}{N_{\sigma}} f_{P_{ji}}(y)\, \frac{1}{\sigma \sqrt{\pi}} e^{\frac{(y-x)^2}{\sigma^2}}
+\end{align}
+%
+This can be visualized in Fig3A. Indeed expression transitions from with the variation of $\sigma$ as
+\begin{align}
+  \lim_{\sigma \to 0}   f_{P_{ji}|P_{ij}} (y \mid x) = \delta(y-x)
+\end{align} 
+%
+and
+%
+\begin{align}
+  \lim_{\sigma \to \infty}   f_{P_{ji}|P_{ij}} (y \mid x) = f_{P_{ji}}(y)
+\end{align}
+%% Expression $\eqref{eq:rho}$ can then be written as
+%% %
+%% \begin{align}
+%% \varrho = \frac{\E(P_{ij}P_{ji})}{{\E\left(P_{ij}\right)}^2} = \frac{\int_0^1 \int_0^1 xy\, f_{P_{ij}P_{ji}}(x,y) \, dx\, dy}{\left(\int_0^1 x f_{P_{ij}}(x)\, dx\right)^2}
+%% \end{align}
+
