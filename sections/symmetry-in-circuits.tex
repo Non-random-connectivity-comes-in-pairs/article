@@ -3,7 +3,7 @@
 
 However, even when pairs . This can be demonstrated by considering a model of in which .
 
-Consider for this that connection probabilities $P_{ij}$ are distributed according to some probability density function $f_{P_{ij}}$. The expected probability of reciprocal connections can then be expressed as
+Consider for this that connection probabilities $P_{ij}$ are distributed according to some probability density function $f_{P_{ij}}$. The expected probability of a reciprocal connection within a pair can then be expressed as
 %
 \begin{align}
   \E(P_{ij}P_{ji}) = \int_0^1 \int_0^1 xy\, f_{P_{ij},P_{ji}}(x,y) \, dx\, dy,
@@ -18,7 +18,7 @@ where $f_{P_{ij},P_{ji}}(x,y)$ is the joint probability density function of $P_{
 In the case that $P_{ij}$ and $P_{ji}$ are independent we have $f_{P_{ji} | P_{ij}}(y \mid x) = f_{P_{ji}}(y)$ and in the case of $P_{ij}=P_{ji}$ it is $f_{P_{ji} | P_{ij}}(y \mid x) = \delta(y-x)$.  Here we propose a model for the conditional density function that transitions between the two extreme cases by multiplying $f_{P_{ji}}(y)$ with the density function of a normal distribution centered around $x$,
 %
 \begin{align}
-  f_{P_{ji} | P_{ij}} (y \mid x) = \frac{1}{N_{\sigma}(x)} f_{P_{ji}}(y)\, \frac{1}{\sigma \sqrt{2 \pi}} \,e^{\frac{(y-x)^2}{2 \sigma^2}}
+  f_{P_{ji} | P_{ij}} (y \mid x) = \frac{1}{N_{\sigma}(x)} f_{P_{ji}}(y)\, \frac{1}{\sigma \sqrt{2 \pi}} \,e^{\frac{(y-x)^2}{2 \sigma^2}} \label{eq:fpijpji}
 \end{align}
 %
 The additional factor $N_{\sigma}(x)$  makes sure that $f_{P_{ji}|P_{ij}} (y \mid x)$ integrates to one,
@@ -35,20 +35,32 @@ Indeed as the variance $\sigma^2$ of the normal distribution increases $f_{P_{ji
 In Figure~\ref{fig:sym_fail}A the conditional density function is shown . Finally we can test
 %
 \begin{align}
-  \varrho = \frac{\E(P_{ij} P_{ji})}{\mu^2}.
+  \varrho = \frac{\E(P_{ij} P_{ji})}{\mu^2},
 \end{align}
-
-Here, the overall connection probability is calculated as
+%
+where the overall connection probability $\mu$ is calculated as
+%
+\begin{align}
+ \mu = \frac{1}{2} \int_0^1 x f_{P_{ij}}(x)\,dx + \frac{1}{2} \int_0^1 f_{P_{ij}}(x) \int_0^1 y \,f_{P_{ji}\vert P_{ij}}(y \mid x) \,dy \, dx.
+\end{align}
+%
+The
 
 Figure~\ref{fig:sym_fail}B
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.495\textwidth]{%
-  /home/fh/sci/rsc/nrnd_pairs/lab/bench/fig3A/fig3A.pdf}
-\includegraphics[width=0.495\textwidth]{%
-/home/fh/sci/rsc/nrnd_pairs/lab/bench/fig3B/fig3B.pdf}
-\caption{Relative overrepresentation of bidirectional connections $\varrho$ is sustained when connection probabilities are only approximately symmetric in pairs. \textbf{A} Illustration of }
+%% \begin{overpic}[width=0.495\textwidth]%
+%%   {../../../lab/bench/fig3A/fig3A.pdf}
+%%   \put(18.,66.5){\textbf{A}}
+%% \end{overpic}
+%% \begin{overpic}[width=0.495\textwidth]%
+%%   {../../../lab/bench/fig3B/fig3B.pdf}
+%%   \put(18.,66.5){\textbf{A}}
+%% \end{overpic}
+\includegraphics[width=\textwidth]{%
+  /home/fh/sci/rsc/nrnd_pairs/pub/arxiv_16/figures/sym_fail/sym_fail_figure.png}
+\caption{Relative overrepresentation of bidirectional connections $\varrho$ is sustained when connection probabilities are only approximately symmetric in pairs. \textbf{A} Illustration how the conditional density function $f_{P_{ji} | P_{ij}} (y\,\vert\, x)$ in \eqref{eq:fpijpji} transitions from equality to independence of the random variables $P_{ij}$ and $P_{ji}$ with increasing $\sigma$. Here we chose $f_{P_{ij}} (y) = f^T_{\alpha,\beta}(y)$ from $\eqref{eq:fTab}$, with $\alpha=0.248$ and $\beta$ chosen such that the overall connection probability $\mu=0.1$, and it is $P_{ij}$ fixed as $x=0.15$. For $\sigma=1$ the conditional density function becomes indistinguishable from  $f^T_{\alpha,\beta}(y)$ in the plot. \textbf{B} Relative occurrence of reciprocally connected pairs $\varrho$  } 
 \label{fig:sym_fail}
 \end{figure}
 
