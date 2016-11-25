@@ -9,28 +9,56 @@ Consider for this that connection probabilities $P_{ij}$ are distributed accordi
   \E(P_{ij}P_{ji}) = \int_0^1 \int_0^1 xy\, f_{P_{ij},P_{ji}}(x,y) \, dx\, dy,
 \end{align}
 %
-where $f_{P_{ij},P_{ji}}(x,y)$ is the joint probability density function of $P_{ij}$ and $P_{ij}$, 
+where $f_{P_{ij},P_{ji}}(x,y)$ is the joint probability density function of $P_{ij}$ and $P_{ji}$, 
 %
 \begin{align}
-  f_{P_{ij},P_{ji}}(x,y) =  f_{P_{ji} | P_{ij}}(y \mid x) f_{P_{ij}}(x)
+  f_{P_{ij},P_{ji}}(x,y) =  f_{P_{ji} | P_{ij}}(y \mid x) f_{P_{ij}}(x).
 \end{align}
 %
-In the independent case, in the case. Here we propose
+In the case that $P_{ij}$ and $P_{ji}$ are independent we have $f_{P_{ji} | P_{ij}}(y \mid x) = f_{P_{ji}}(y)$ and in the case of $P_{ij}=P_{ji}$ it is $f_{P_{ji} | P_{ij}}(y \mid x) = \delta(y-x)$.  Here we propose a model for the conditional density function that transitions between the two extreme cases by multiplying $f_{P_{ji}}(y)$ with the density function of a normal distribution centered around $x$,
 %
 \begin{align}
-  f_{P_{ji}|P_{ij}} (y \mid x) = \frac{1}{N_{\sigma}} f_{P_{ji}}(y)\, \frac{1}{\sigma \sqrt{\pi}} e^{\frac{(y-x)^2}{\sigma^2}}
+  f_{P_{ji} | P_{ij}} (y \mid x) = \frac{1}{N_{\sigma}(x)} f_{P_{ji}}(y)\, \frac{1}{\sigma \sqrt{2 \pi}} \,e^{\frac{(y-x)^2}{2 \sigma^2}}
 \end{align}
 %
-This can be visualized in Fig3A. Indeed expression transitions from with the variation of $\sigma$ as
-\begin{align}
-  \lim_{\sigma \to 0}   f_{P_{ji}|P_{ij}} (y \mid x) = \delta(y-x)
-\end{align} 
-%
-and
+The additional factor $N_{\sigma}(x)$  makes sure that $f_{P_{ji}|P_{ij}} (y \mid x)$ integrates to one,
 %
 \begin{align}
-  \lim_{\sigma \to \infty}   f_{P_{ji}|P_{ij}} (y \mid x) = f_{P_{ji}}(y)
+  N_{\sigma}(x) = \int_0^1 f_{P_{ji}}(z)\, \frac{1}{\sigma \sqrt{2 \pi}}\, e^{\frac{(z-x)^2}{2 \sigma^2}} \,dz.
 \end{align}
+%
+Indeed as the variance $\sigma^2$ of the normal distribution increases $f_{P_{ji}|P_{ij}} (y \mid x) \to f_{P_{ji}}$ and in the limit $\sigma \to 0$ we have
+\begin{align}
+  \lim_{\sigma \to 0}   f_{P_{ji}|P_{ij}} (y \mid x) = \delta(y-x).
+\end{align}
+%
+In Figure~\ref{fig:sym_fail}A the conditional density function is shown . Finally we can test
+%
+\begin{align}
+  \varrho = \frac{\E(P_{ij} P_{ji})}{\mu^2}.
+\end{align}
+
+Here, the overall connection probability is calculated as
+
+Figure~\ref{fig:sym_fail}B
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.495\textwidth]{%
+  /home/fh/sci/rsc/nrnd_pairs/lab/bench/fig3A/fig3A.pdf}
+\includegraphics[width=0.495\textwidth]{%
+/home/fh/sci/rsc/nrnd_pairs/lab/bench/fig3B/fig3B.pdf}
+\caption{Relative overrepresentation of bidirectional connections $\varrho$ is sustained when connection probabilities are only approximately symmetric in pairs. \textbf{A} Illustration of }
+\label{fig:sym_fail}
+\end{figure}
+
+
+%
+%% and
+%% %
+%% \begin{align}
+%%   \lim_{\sigma \to \infty}   f_{P_{ji}|P_{ij}} (y \mid x) = f_{P_{ji}}(y)
+%% \end{align}
 %% Expression $\eqref{eq:rho}$ can then be written as
 %% %
 %% \begin{align}
