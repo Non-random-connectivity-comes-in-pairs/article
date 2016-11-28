@@ -1,9 +1,10 @@
 
--- How likely is the symmetry assumption in cortical circuits? --
+%% Finding matching connection probabilities in pairs but necessarily between different targets of a specific cell is a plausible scenario in neural network both from an anatomical and a functional perspective. 
 
-However, even when pairs . This can be demonstrated by considering a model of in which .
 
-Consider for this that connection probabilities $P_{ij}$ are distributed according to some probability density function $f_{P_{ij}}$. We assume in the following that $i > j$ without restriction. The expected probability of a reciprocal connection within a pair can be expressed as
+Connection probabilities that are equal within pairs but differ across the network are plausible in neural circuits both from an anatomical and a functional perspective. For the anatomical perspective, one could for example consider two pyramidal cells in cortical layer 5 of the same cortical region. In this context there is clear evidence that the probability of two such neurons being connected depends on the spatial separation of their somata (references). Since the distance from the first neuron's soma to the second neuron's soma is the same as the distance from the second to the first, this implies that the connection probabilities will be symmetric. Regarding the functional perspective, there is clear evidence that the connection probability depends on the functional properties of the cells. For example, the connection probability of orientation tuned cells in primary visual cortex depends on their absolute difference in orientation tuning (references). Since the absolute difference in orientation tuning will be the same in both directions, we again expect the connection probabilities to be symmetric.
+
+However, even when connection probabilities within pairs do not match exactly, an overrepresentation of reciprocal connections is still likely to be observed, given   Consider for this that connection probabilities $P_{ij}$ are distributed according to some probability density function $f_{P_{ij}}(x)$. We assume in the following that $i > j$ without restriction. The expected probability of a reciprocal connection within a pair can be expressed as
 %
 \begin{align}
   \E(P_{ij}P_{ji}) = \int_0^1 \int_0^1 xy\, f_{P_{ij},P_{ji}}(x,y) \, dx\, dy, \label{eq:dbint}
@@ -54,7 +55,9 @@ and the overall connection probability $\mu$ is calculated as
 \end{align}
 %
 
-Figure~\ref{fig:sym_fail}B shows the change of $\varrho$ with $\sigma$ for connection probabilities $P_{ij}$ following a truncated gamma distribution $\Gamma^T(\alpha, \beta)$. For the three parameters sets chosen, we can show that a strong overrepresentation of bidirectional connections . In fact as along 
+Figure~\ref{fig:sym_fail}B shows the change of $\varrho$ with $\sigma$ for connection probabilities $P_{ij}$ following a truncated gamma distribution $\Gamma^T(\alpha, \beta)$. For the three parameter sets chosen, we can show that a strong overrepresentation of bidirectional connections is sustained when connection probabilities are only approximately symmetric in pairs. Further, 
+
+ally sustained and only decays slowly initially. In fact, . 
 
 \begin{figure}[h!]
 \centering
@@ -68,7 +71,7 @@ Figure~\ref{fig:sym_fail}B shows the change of $\varrho$ with $\sigma$ for conne
 %% \end{overpic}
 \includegraphics[width=\textwidth]{%
   /home/fh/sci/rsc/nrnd_pairs/pub/arxiv_16/figures/sym_fail/sym_fail_figure.png}
-\caption{Relative overrepresentation of bidirectional connections $\varrho$ is sustained when connection probabilities are only approximately symmetric in pairs. \textbf{A} Illustration how the conditional density function $f_{P_{ji} | P_{ij}} (y\,\vert\, x)$ of \eqref{eq:fpijpji} transitions from equality of the random variables $P_{ij}$ and $P_{ji}$ to independence with increasing $\sigma$. It is $f_{P_{ij}} (y) = f^T_{\alpha,\beta}(y)$, with $\alpha=0.248$ and $\beta$ such that $\operatorname{E}(P_{ij})=0.1$. For the illustration $P_{ij}$ was fixed as $x=0.15$. Already for $\sigma=1$ the conditional density function becomes visually indistinguishable from  $f^T_{\alpha,\beta}(y)$ in the graphic. \textbf{B}~Relative occurrence of reciprocally connected pairs $\varrho$ as a function of $\sigma$. The curves for $\alpha=1$ and $\alpha=2$ show numerical solutions of \eqref{eq:rho_sigma} with $f_{P_{ij}} = f_{\alpha,\beta}^T$, where $\beta$ was chosen such that $\operatorname{E}(P_{ij}) = 0.1$. For $\alpha = 0.248$ random variables with the respective probability density functions were sampled and the average $\varrho$ was computed via \eqref{eq:rho_sigma} using the sample means. Error bars show SEM, the curve for $\alpha = 0.248$ (solid line)  was fitted to the data points and is purely for illustrative purposes.} 
+\caption{Relative overrepresentation of bidirectional connections $\varrho$ is sustained when connection probabilities are only approximately symmetric in pairs. \textbf{A} Illustration how the conditional density function $f_{P_{ji} | P_{ij}} (y\,\vert\, x)$ of \eqref{eq:fpijpji} transitions from equality of the random variables $P_{ij}$ and $P_{ji}$ to independence with increasing $\sigma$. It is $f_{P_{ij}} (y) = f^T_{\alpha,\beta}(y)$, with $\alpha=0.248$ and $\beta$ such that $\operatorname{E}(P_{ij})=0.1$. For the illustration $P_{ij}$ was fixed as $x=0.15$. Already for $\sigma=1$ the conditional density function becomes visually indistinguishable from  $f^T_{\alpha,\beta}(y)$ in the graphic. \textbf{B}~Relative occurrence of reciprocally connected pairs $\varrho$ as a function of $\sigma$. The curves for $\alpha=1$ and $\alpha=2$ show numerical solutions of \eqref{eq:rho_sigma} with $f_{P_{ij}}(y) = f_{\alpha,\beta}^T(y)$, where $\beta$ was chosen such that $\operatorname{E}(P_{ij}) = 0.1$. Relative reciprocal pair counts from generated networks following the model matched these theoretical curves (data not shown). For $\alpha = 0.248$ random variables with the respective probability density functions were sampled and the average $\varrho$ was computed via \eqref{eq:rho_sigma} using the sample means. Error bars show SEM, the curve for $\alpha = 0.248$ (solid line)  was fitted to the data points and is purely for illustrative purposes.} 
 \label{fig:sym_fail}
 \end{figure}
 
