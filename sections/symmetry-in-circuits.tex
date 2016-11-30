@@ -1,8 +1,7 @@
 
 %% Finding matching connection probabilities in pairs but necessarily between different targets of a specific cell is a plausible scenario in neural network both from an anatomical and a functional perspective. 
 
-
-In neural circuits, connection probabilities that are equal within pairs but differ across the network are plausible from both an anatomical and a functional perspective. From the anatomical point of view, the distance dependency of connection probabilities mentioned above is a characteristic of cortical circuits that necessarily leads to symmetric probabilities: the distance from the first neuron's soma to the second neuron's soma is the same as the distance from the second to the first, resulting in equal probabilities within a pair of neurons when inter-neuron distance determines connectivity. Regarding the functional perspective, connection probabilities may also depend on functional properties of the cells in the network. For example, the probability of connection of orientation tuned cells in the mouse primary visual cortex depends on their absolute difference in orientation tuning \cite{Lee2016, Ko2011}. Since the absolute difference in orientation tuning will be the same in both directions, connection probabilities can be expected to be equal within a pair of orientation tuned cells.
+In neural circuits, connection probabilities that are equal within pairs but differ across the network are plausible from both an anatomical and a functional perspective. From the anatomical point of view, the distance dependency of connection probabilities mentioned above is a characteristic of cortical circuits that necessarily leads to symmetric probabilities: the distance from the first neuron's soma to the second neuron's soma is the same as the distance from the second to the first, resulting in equal probabilities within a pair of neurons when inter-neuron distance determines connectivity. Regarding the functional perspective, connection probabilities may also depend on functional properties of the cells in the network. For example, the probability of connection of orientation tuned cells in the mouse primary visual cortex depends on their absolute difference in orientation tuning \cite{Lee2016a, Ko2011}. Since the absolute difference in orientation tuning will be the same in both directions, connection probabilities can be expected to be equal within a pair of orientation tuned cells.
 
 %% Regarding the functional perspective, there is clear evidence that the connection probability depends on the functional properties of the cells. For example, the connection probability of orientation tuned cells in primary visual cortex depends on their absolute difference in orientation tuning (references). Since the absolute difference in orientation tuning will be the same in both directions, we again expect the connection probabilities to be symmetric.
 
@@ -57,10 +56,9 @@ and the overall connection probability $\mu$ is calculated as
 \end{align}
 %
 
-Figure~\ref{fig:sym_fail}B shows the change of $\varrho$ with $\sigma$ for connection probabilities $P_{ij}$ following a truncated gamma distribution $\Gamma^T(\alpha, \beta)$. For the three parameter sets chosen, we can show that a strong overrepresentation of bidirectional connections is sustained when connection probabilities are only approximately symmetric in pairs. Further, 
+Figure~\ref{fig:sym_fail}B shows the change of $\varrho$ with $\sigma$ for connection probabilities $P_{ij}$ following a truncated gamma distribution $\Gamma^T(\alpha, \beta)$. For the three parameter sets chosen we can show that a strong overrepresentation of bidirectional connections is sustained when connection probabilities are only approximately symmetric in pairs. Further, as long as $P_{ji}$ is at least somewhat biased to take similar values to $P_{ij}$ an overrepresentation of $\varrho > 1$ can be registered, implying that effects such as distance-dependency or the dependence on the absolute difference in orientation tuning of connection probabilities will positively affect the relative occurrence of bidirectional connections, even when other effects are influencing the neurons' connection probabilities.
 
-ally sustained and only decays slowly initially. In fact, . 
-
+\vspace{0.2cm}
 \begin{figure}[h!]
 \centering
 %% \begin{overpic}[width=0.495\textwidth]%
