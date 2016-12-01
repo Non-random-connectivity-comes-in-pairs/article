@@ -40,7 +40,7 @@ and is needed to ensure that
   \int f_{\alpha,\beta}^T(x) \,dx = 1 \label{eq:gd1}.
 \end{align}
 Consider then the above network model in which the connection
-probabilities $P_{ij}^T$ are $\Gamma^T(\alpha, \beta)$ distributed. We
+probabilities $P_{ij}^T$ are $\Gamma^T(\alpha, \beta)$ distributed and $P_{ij}^T = P_{ji}^T$. We
 compute the relative overrepresentation $\varrho$ numerically from
 \begin{align}
   \mu = \E\left(P_{ij}^T\right) &= \int_0^1 x f_{\alpha,\beta}^T(x)\, dx,\\
@@ -75,7 +75,7 @@ Figure~\ref{fig:gd}B (solid curve).
   0.1$. Plot to the right continues the density functions on a
   different scale. \textbf{B} Contour of $\alpha$, $\beta$ pairings
   that yield an overall connection probability of $\mu =
-  0.1$. \textbf{C} Relative occurrence $\varrho$ in dependence on
+  0.1$. \textbf{C} Relative occurrence $\varrho$ as a function of
   $\alpha$ for fixed $\mu = 0.1$. For $\alpha \geq 1$ this
   relationship is well approximated by $\varrho \approx 1 +
   \frac{1}{\alpha}$.}
