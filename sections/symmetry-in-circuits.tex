@@ -5,7 +5,7 @@ In neural circuits, connection probabilities that are equal within pairs but dif
 
 %% Regarding the functional perspective, there is clear evidence that the connection probability depends on the functional properties of the cells. For example, the connection probability of orientation tuned cells in primary visual cortex depends on their absolute difference in orientation tuning (references). Since the absolute difference in orientation tuning will be the same in both directions, we again expect the connection probabilities to be symmetric.
 
-However, even when connection probabilities within pairs do not match exactly, an overrepresentation of reciprocal connections is still likely to be observed when a sufficient degree of non-randomness is present in the network. Consider for this that connection probabilities $P_{ij}$ are distributed according to some probability density function $f_{P_{ij}}(x)$. We assume in the following that $i > j$ without restriction. The expected probability of a reciprocal connection within a pair can be expressed as
+However, even when connection probabilities within pairs do not match exactly, an overrepresentation of reciprocal connections is still likely to be observed when connection probabilities follow a non-degenerate distribution. Consider for this that connection probabilities $P_{ij}$ are distributed according to some probability density function $f_{P_{ij}}(x)$. As before we assume that the $P_{ij}$ are independent outside of pairs. In the following we also assume that $i > j$ without restriction. The expected probability of a reciprocal connection within a pair can then be expressed as
 %
 \begin{align}
   \E(P_{ij}P_{ji}) = \int_0^1 \int_0^1 xy\, f_{P_{ij},P_{ji}}(x,y) \, dx\, dy, \label{eq:dbint}

@@ -50,15 +50,19 @@ compute the relative overrepresentation $\varrho$ numerically from
 Pairings of the shape parameter $\alpha$ and the scale parameter
 $\beta$ were chosen such that the overall connection probability
 reflects connectivity statistics in local cortical networks, $\mu =
-0.1$. Probability density functions and resulting relative
-overrepresentation of reciprocal connections $\varrho$ for four
-representative $\alpha,\beta$ pairs are shown in
-Figure~\ref{fig:gd}A. For a given $\alpha$ the scale parameter $\beta$
-was here determined to yield $\mu =0.1$, the connection probability
-typically found in local cortical circuits \cite{Song2005,
-  Thomson2002}, following the relationship shown in
+0.1$ \cite{Song2005, Thomson2002}. Probability density functions and
+resulting relative overrepresentation of reciprocal connections
+$\varrho$ for four representative $\alpha,\beta$ pairs are shown in
+Figure~\ref{fig:gd}A. Here, $\beta$ was determined to yield $\mu =
+0.1$ for the given $\alpha$, following the relationship shown in
 Figure~\ref{fig:gd}B (solid curve).
-\vspace{0.2cm}
+
+
+%% For a given $\alpha$ the scale parameter $\beta$
+%% was here determined to yield $\mu =0.1$, the connection probability
+%% typically found in local cortical circuits, following the relationship shown in
+%% Figure~\ref{fig:gd}B (solid curve).
+%% \vspace{0.2cm}
 
 \begin{figure}[h!]
 \centering
@@ -74,19 +78,21 @@ Figure~\ref{fig:gd}B (solid curve).
   $\alpha$, the scale parameter $\beta$ was chosen such that $\mu =
   0.1$. Plot to the right continues the density functions on a
   different scale. \textbf{B} Contour of $\alpha$, $\beta$ pairings
-  that yield an overall connection probability of $\mu =
-  0.1$. \textbf{C} Relative occurrence $\varrho$ as a function of
-  $\alpha$ for fixed $\mu = 0.1$. For $\alpha \geq 1$ this
+  that yield an overall connection probability of $\mu = 0.1$. The
+  dashed line shows the approximation $\beta=\frac{\mu}{\alpha}$,
+  where $\mu=0.1$. \textbf{C} Relative occurrence $\varrho$ as a
+  function of $\alpha$ for fixed $\mu = 0.1$. For $\alpha \geq 1$ this
   relationship is well approximated by $\varrho \approx 1 +
   \frac{1}{\alpha}$.}
 \label{fig:gd}
 \end{figure}
-\vspace{0.2cm}
 
-In the sparse networks we modeled, the truncated gamma distribution
-can be well approximated by the untruncated version, $K_{\alpha,
-  \beta} \approx 1$. Assuming connection probabilities to be standard
-gamma distributed, $P_{ij} \sim \Gamma(\alpha,\beta)$, we have
+In the sparse networks we modeled, the tail of the gamma distribution
+is near zero at $P_{ij}^T=1$ (see Figure 2A). Thus $K_{\alpha, \beta}
+\approx 1$ and the the truncated gamma distribution can be well
+approximated by the untruncated version. Assuming connection
+probabilities to be standard gamma distributed, $P_{ij} \sim
+\Gamma(\alpha,\beta)$, we have
 \begin{align}
   \E(P_{ij}^2) = \Var(P_{ij}) + \E(P_{ij})^2 =  \alpha \beta^2 + \alpha^2 \beta^2, 
 \end{align}
