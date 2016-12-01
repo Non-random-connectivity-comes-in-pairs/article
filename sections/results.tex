@@ -29,12 +29,16 @@ certainty, representing a blueprint for the network architecture.
 To analyze the effect of non-random structures within a network,
 specifically on the statistics of bidirectionally connected pairs
 found in the network, we consider a random graph model of $N$ neurons
-in which a connection from node $i$ to node $j$ exists with
-probability $P_{ij}$.
+in which the probability of node $i$ to connect to node $j$ is modeled by a random variable $P_{ij}$.
 %
-Here the $P_{ij}$, with $i,j = 1,\dots,N$ and $i \neq j$, are identically
-distributed random variables in $[0,1]$, yielding a probability of
-connection for each ordered pair of nodes in the graph. We explicitly exclude self-connections in this model and assume at all times that $i \neq j$.% Below we're assuming $i \neq j $ in all cases.
+For this we assume $P_{ij}$ for $i,j = 1,\dots,N$ with $i \neq j$ to be
+identically distributed random variables in $[0,1]$, yielding a
+probability of connection for each ordered pair of nodes in the graph.
+%
+Outside of pairs the random variables $P_{ij}$ are assumed to be independent, that is non-equal $P_{ij}$ and $P_{kl}$ are independent as long as $i \neq l$ or $j \neq k$.
+%
+Finally, we explicitly exclude self-connections in this model and assume at all
+times that $i \neq j$.% Below we're assuming $i \neq j $ in all cases.
 % where we
 %always assume $i \neq as it does not make sense to consider
 %bidirectional connectivity in
@@ -74,11 +78,11 @@ The relative occurrence $\varrho$ of such reciprocally connected pairs compares 
 \varrho = \frac{P_{\mathbf{bidir}}}{\mu^2} = \frac{\E(P_{ij}P_{ji})}{{\E\left(P_{ij}\right)}^2}.\label{eq:rho}
 \end{align}
 %
-Experimental studies in local cortical circuits of rodents have repeatedly reported a relative occurrence of bidirectional connections $\varrho > 1$ \cite{Markram1997, Song2005, Perin2011}. To understand in which cases such an overrepresentation occurs, we consider two cases. In the first case, assume that the random variables $P_{ij}$ and $P_{ji}$ are independent. Then
+Experimental studies in local cortical circuits of rodents have repeatedly reported a relative occurrence of bidirectional connections $\varrho > 1$ \cite{Markram1997, Song2005, Perin2011}. To understand in which cases such an overrepresentation occurs, we consider two cases. In the first case, assume now that connection probabilities are independently determined in pairs as well, meaning that the random variables $P_{ij}$ and $P_{ji}$ are independent. Then, as $P_{ij}$ and $P_{ji}$ are identically distributed,
 \begin{align}
 \E(P_{ij} P_{ji}) = \E(P_{ij})\,\E(P_{ji}) = \E(P_{ij})^2,
 \end{align}
-and we expect to observe no overrepresentation of reciprocal connections, $\varrho = 1$.  In the second case, assume that connection probabilities are symmetric in pairs, $P_{ij} = P_{ji}$. In this case,
+and we expect to observe no overrepresentation of reciprocal connections, $\varrho = 1$.  In the second case, assume then that connection probabilities are symmetric in pairs, $P_{ij} = P_{ji}$. In this case,
 \begin{align}
 P_{\mathbf{bidir}} = \E(P_{ij}^2),
 \end{align}
