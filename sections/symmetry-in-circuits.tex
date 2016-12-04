@@ -1,11 +1,11 @@
 
 %% Finding matching connection probabilities in pairs but necessarily between different targets of a specific cell is a plausible scenario in neural network both from an anatomical and a functional perspective. 
 
-In neural circuits, connection probabilities that are equal within pairs but differ across the network are plausible from both an anatomical and a functional perspective. From the anatomical point of view, the distance dependency of connection probabilities mentioned above is a characteristic of cortical circuits that necessarily leads to symmetric probabilities: the distance from the first neuron's soma to the second neuron's soma is the same as the distance from the second to the first, resulting in equal probabilities within a pair of neurons when inter-neuron distance determines connectivity. Regarding the functional perspective, connection probabilities may also depend on functional properties of the cells in the network. For example, the probability of connection of orientation tuned cells in the mouse primary visual cortex depends on their absolute difference in orientation tuning \cite{Lee2016a, Ko2011}. Since the absolute difference in orientation tuning will be the same in both directions, connection probabilities can be expected to be equal within a pair of orientation tuned cells.
+In neural circuits, connection probabilities that are equal within pairs but differ across the network are plausible from both an anatomical and a functional perspective. From the anatomical point of view, the distance dependency of connection probabilities mentioned above is a characteristic of cortical circuits that necessarily leads to symmetric probabilities: the distance from the first neuron's soma to the second neuron's soma is the same as the distance from the second to the first, resulting in equal probabilities within a pair of neurons when inter-neuron distance determines connection probabilities. Regarding the functional perspective, connection probabilities may also depend on functional properties of the cells in the network. For example, the probability of connection of orientation tuned cells in the mouse primary visual cortex depends on their absolute difference in orientation tuning \cite{Lee2016a, Ko2011}. Since the absolute difference in orientation tuning will be the same in both directions, connection probabilities can be expected to be equal within a pair of orientation tuned cells.
 
 %% Regarding the functional perspective, there is clear evidence that the connection probability depends on the functional properties of the cells. For example, the connection probability of orientation tuned cells in primary visual cortex depends on their absolute difference in orientation tuning (references). Since the absolute difference in orientation tuning will be the same in both directions, we again expect the connection probabilities to be symmetric.
 
-However, even when connection probabilities within pairs do not match exactly, an overrepresentation of reciprocal connections is still likely to be observed when connection probabilities follow a non-degenerate distribution. Consider for this that connection probabilities $P_{ij}$ are distributed according to some probability density function $f_{P_{ij}}(x)$. As before we assume that the $P_{ij}$ are independent outside of pairs. In the following we also assume that $i > j$ without restriction. The expected probability of a reciprocal connection within a pair can then be expressed as
+However, even when connection probabilities within pairs do not match exactly, an overrepresentation of reciprocal connections is still likely to be observed when connection probabilities follow a non-degenerate distribution. To see this, consider that connection probabilities $P_{ij}$ are distributed according to some probability density function $f_{P_{ij}}(x)$. As before we assume that the $P_{ij}$ are independent outside of pairs. In the following we also assume that $i > j$ without loss of generality. The expected probability of a reciprocal connection within a pair can then be expressed as
 %
 \begin{align}
   \E(P_{ij}P_{ji}) = \int_0^1 \int_0^1 xy\, f_{P_{ij},P_{ji}}(x,y) \, dx\, dy, \label{eq:dbint}
@@ -29,12 +29,29 @@ where the additional factor $N_{\sigma}(x)^{-1}$  makes sure that $f_{P_{ji}|P_{
   N_{\sigma}(x) = \int_0^1 f_{P_{ji}}(z)\, \frac{1}{\sigma \sqrt{2 \pi}}\, e^{\frac{(z-x)^2}{2 \sigma^2}} \,dz.
 \end{align}
 %
-Indeed, as the standard deviation $\sigma$ of the modulating normal distribution increases $f_{P_{ji}|P_{ij}} (y \mid x) \to f_{P_{ji}}(y)$ and in the limit $\sigma \to 0$ we have
+Indeed, as the standard deviation $\sigma$ of the modulating normal distribution increases $f_{P_{ji}|P_{ij}} (y \mid x)$ approaches $f_{P_{ji}}(y)$ and in the limit $\sigma \to 0$ we have
 \begin{align}
   \lim_{\sigma \to 0}   f_{P_{ji}|P_{ij}} (y \mid x) = \delta(y-x).
 \end{align}
 %
-In Figure~\ref{fig:sym_fail}A  conditional density functions for various $\sigma$ are shown for the truncated gamma distribution. For low values of $\sigma$ the conditional density function resembles a narrow Gaussian around $x$, reflecting approximately symmetric connection probabilities. For $\sigma > 1$ on the other hand $f_{P_{ji} | P_{ij}}(y \mid x)$ becomes virtually indistinguishable from $f^T_{\alpha, \beta}(y)$, signifying independence of $P_{ji}$ from $P_{ij}$.
+In Figure~\ref{fig:sym_fail}A, conditional density functions for various $\sigma$ are shown for the truncated gamma distribution. For low values of $\sigma$ the conditional density function resembles a narrow Gaussian around $x$, reflecting approximately symmetric connection probabilities. For $\sigma > 1$ on the other hand $f_{P_{ji} | P_{ij}}(y \mid x)$ becomes virtually indistinguishable from $f^T_{\alpha, \beta}(y)$, reflecting independence of $P_{ji}$ from $P_{ij}$.
+
+\begin{figure}[h!]
+\centering
+%% \begin{overpic}[width=0.495\textwidth]%
+%%   {../../../lab/bench/fig3A/fig3A.pdf}
+%%   \put(18.,66.5){\textbf{A}}
+%% \end{overpic}
+%% \begin{overpic}[width=0.495\textwidth]%
+%%   {../../../lab/bench/fig3B/fig3B.pdf}
+%%   \put(18.,66.5){\textbf{A}}
+%% \end{overpic}
+\includegraphics[width=\textwidth]{%
+  /home/fh/sci/rsc/nrnd_pairs/pub/arxiv_16/figures/sym_fail/sym_fail_figure.png}
+\caption{Relative overrepresentation of bidirectional connections $\varrho$ is sustained when connection probabilities are only approximately symmetric in pairs. \textbf{A} Illustration how the conditional density function $f_{P_{ji} | P_{ij}} (y\,\vert\, x)$ of \eqref{eq:fpijpji} transitions from equality of the random variables $P_{ij}$ and $P_{ji}$ to independence with increasing $\sigma$. We use $f_{P_{ij}} (y) = f^T_{\alpha,\beta}(y)$, with $\alpha=0.248$ and $\beta$ such that $\operatorname{E}(P_{ij})=0.1$. For the illustration $P_{ij}$ was fixed as $x=0.15$. Already for $\sigma=1$ the conditional density function becomes visually indistinguishable from  $f^T_{\alpha,\beta}(y)$. \textbf{B}~Relative occurrence of reciprocally connected pairs $\varrho$ as a function of $\sigma$. The curves for $\alpha=1$ and $\alpha=2$ show numerical solutions of \eqref{eq:rho_sigma} with $f_{P_{ij}}(y) = f_{\alpha,\beta}^T(y)$, where $\beta$ was chosen such that $\operatorname{E}(P_{ij}) = 0.1$. Relative reciprocal pair counts from generated networks following the model matched these theoretical curves (data not shown). For $\alpha = 0.248$ random variables with the respective probability density functions were sampled and the average $\varrho$ was computed via \eqref{eq:rho_sigma} using the sample means. Error bars show SEM, the curve for $\alpha = 0.248$ (solid line)  was fitted to the data points and is purely for illustrative purposes.} 
+\label{fig:sym_fail}
+\end{figure}
+
 
 Finally we employ the model to examine how the relative overrepresentation of bidirectional connections $\varrho$ changes with the degree of symmetry in the connection probabilities within a pair of neurons. For this $\varrho$ is computed as a function of $\sigma$ as for a given distribution of $P_{ij}$ as
 %
@@ -56,24 +73,7 @@ and the overall connection probability $\mu$ is calculated as
 \end{align}
 %
 
-Figure~\ref{fig:sym_fail}B shows the change of $\varrho$ with $\sigma$ for connection probabilities $P_{ij}$ following a truncated gamma distribution $\Gamma^T(\alpha, \beta)$. For the three parameter sets chosen we can show that a strong overrepresentation of bidirectional connections is sustained when connection probabilities are only approximately symmetric in pairs. Further, as long as $P_{ji}$ is at least somewhat biased to take similar values to $P_{ij}$ an overrepresentation of $\varrho > 1$ can be registered, implying that effects such as distance-dependency or the dependence on the absolute difference in orientation tuning of connection probabilities will positively affect the relative occurrence of bidirectional connections, even when other effects are influencing the neurons' connection probabilities.
-
-\vspace{0.2cm}
-\begin{figure}[h!]
-\centering
-%% \begin{overpic}[width=0.495\textwidth]%
-%%   {../../../lab/bench/fig3A/fig3A.pdf}
-%%   \put(18.,66.5){\textbf{A}}
-%% \end{overpic}
-%% \begin{overpic}[width=0.495\textwidth]%
-%%   {../../../lab/bench/fig3B/fig3B.pdf}
-%%   \put(18.,66.5){\textbf{A}}
-%% \end{overpic}
-\includegraphics[width=\textwidth]{%
-  /home/fh/sci/rsc/nrnd_pairs/pub/arxiv_16/figures/sym_fail/sym_fail_figure.png}
-\caption{Relative overrepresentation of bidirectional connections $\varrho$ is sustained when connection probabilities are only approximately symmetric in pairs. \textbf{A} Illustration how the conditional density function $f_{P_{ji} | P_{ij}} (y\,\vert\, x)$ of \eqref{eq:fpijpji} transitions from equality of the random variables $P_{ij}$ and $P_{ji}$ to independence with increasing $\sigma$. It is $f_{P_{ij}} (y) = f^T_{\alpha,\beta}(y)$, with $\alpha=0.248$ and $\beta$ such that $\operatorname{E}(P_{ij})=0.1$. For the illustration $P_{ij}$ was fixed as $x=0.15$. Already for $\sigma=1$ the conditional density function becomes visually indistinguishable from  $f^T_{\alpha,\beta}(y)$ in the graphic. \textbf{B}~Relative occurrence of reciprocally connected pairs $\varrho$ as a function of $\sigma$. The curves for $\alpha=1$ and $\alpha=2$ show numerical solutions of \eqref{eq:rho_sigma} with $f_{P_{ij}}(y) = f_{\alpha,\beta}^T(y)$, where $\beta$ was chosen such that $\operatorname{E}(P_{ij}) = 0.1$. Relative reciprocal pair counts from generated networks following the model matched these theoretical curves (data not shown). For $\alpha = 0.248$ random variables with the respective probability density functions were sampled and the average $\varrho$ was computed via \eqref{eq:rho_sigma} using the sample means. Error bars show SEM, the curve for $\alpha = 0.248$ (solid line)  was fitted to the data points and is purely for illustrative purposes.} 
-\label{fig:sym_fail}
-\end{figure}
+Figure~\ref{fig:sym_fail}B shows the change of $\varrho$ with $\sigma$ for connection probabilities $P_{ij}$ following a truncated gamma distribution $\Gamma^T(\alpha, \beta)$. For the three parameter sets chosen we see that a strong overrepresentation of bidirectional connections is sustained when connection probabilities are only approximately symmetric in pairs. Furthermore, as long as $P_{ji}$ is at least somewhat biased to take similar values to $P_{ij}$ an overrepresentation of $\varrho > 1$ can be observed, implying that effects such as distance-dependency or the dependence on the absolute difference in orientation tuning of connection probabilities will tend to increase the relative occurrence of bidirectional connections, even when other effects are also influencing the neurons' connection probabilities.
 
 
 %
